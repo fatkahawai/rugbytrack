@@ -11,8 +11,21 @@
   <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
   <![endif]-->
 
+    <!-- Fav and touch icons -->
+    <link rel="shortcut icon" href="./ico/favicon.ico">
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="./ico/apple-touch-icon-144-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="./ico/apple-touch-icon-114-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="./ico/apple-touch-icon-72-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" href="./ico/apple-touch-icon-57-precomposed.png">
+
   <!-- Le styles -->
-  <link rel="stylesheet" href="build/main-built.css" />
+  <link rel="stylesheet" href="css/bootstrap.css" /> 
+  
+      <!-- bootstrap responsive styles.
+        if you don't want automatic reformatting of columns according to device screen size, comment out this.
+     -->
+  <link href="./css/bootstrap-responsive.css" rel="stylesheet">
+
 </head>
 <body>
 
@@ -21,20 +34,23 @@
 
   <div class="container">
 
+    <!-- CONTENT SECTION - this dummy section is filled with whatever the router directs -->
     <section class="page-content"></section>
 
     <hr />
 
-    <footer>
-      <p>&copy; Pink Pelican Ltd 2012</p>
-    </footer>
+      <!-- FOOTER -->
+      <footer>        
+        <p class="pull-right"><a href="#">Back to top</a></p>
+        <p>&copy; 2012 Pink Pelican Ltd. &middot; <a href="#/privacy">Privacy</a> &middot; <a href="#/terms">Terms</a></p>
+      </footer>
 
   </div> <!-- /container -->
 
   <!-- Le javascript
   ================================================== -->
   <!-- Placed at the end of the document so the pages load faster -->
-  <script data-main="build/main-built" src="js/lib/require.min.js"></script>
+  <script data-main="js/main.js" src="js/lib/require.min.js"></script> <!--" modified by bob. was built/main-built.js -->
 
 </body>
 </html>

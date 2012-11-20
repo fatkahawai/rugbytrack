@@ -11,7 +11,6 @@
           <tr>
             <th><i class="icon-user"></i>Name</th>
             <th><i class="icon-envelope"></i>Email</th>
-            <th><i class="icon-briefcase"></i>Company</th>
             <th><i class="icon-time"></i>Born</th>
           </tr>
         </thead>
@@ -23,9 +22,6 @@
             </td>
             <td>
               <a href="mailto:<%- user.email %>"><%- user.email %></a>
-            </td>
-            <td>
-              <%- user.<TODO: other fields> %>
             </td>
             <td>
               <%= moment(new Date(user.born)).format("MMMM Do YYYY") %>

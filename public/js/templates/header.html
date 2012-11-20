@@ -1,15 +1,64 @@
-<div class="navbar navbar-fixed-top">
-  <div class="navbar-inner">
-    <div class="container">
-      <a class="brand" href="#/home">RugbyTrack</a>
-      <div class="nav-collapse">
-        <ul class="nav">
-          <li class="home-menu"><a href="#/home">Home</a></li>
-          <li class="list-menu"><a href="#/users">List users</a></li>
-          <li class="new-menu"><a href="#/users/new">Add user</a></li>
-        </ul>
-        <img class="ajax-loader" src="img/ajax-loader.gif" alt="Loading..." />
-      </div><!--/.nav-collapse -->
-    </div>
-  </div>
-</div>
+<!-- a template for the navbar rendered by the header view in views/header.js -->
+    <!-- NAVBAR
+    ================================================== -->
+    <!-- Wrap the .navbar in .container to center it on the page and provide easy way to target it with .navbar-wrapper. -->
+    <div class="container navbar-wrapper">
+
+      <div class="navbar navbar-inverse">
+        <div class="navbar-inner">
+          <!-- Responsive Navbar Part 1: Button for triggering responsive navbar (not covered in tutorial). Include responsive CSS to utilize. -->
+          <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </a>
+          
+          <a class="brand" href="#/home">RugbyTrack</a>
+
+     
+          <!-- Responsive Navbar Part 2: Place all navbar contents you want collapsed withing .navbar-collapse.collapse. -->
+          <div class="nav-collapse collapse">
+
+            <ul class="nav">
+                
+              <li class="home-menu" class="active"></i><a href="#/home"><i class="icon-home icon-white"></i>Home</a></li>
+              
+              <!-- Read about Bootstrap dropdowns at http://twitter.github.com/bootstrap/javascript.html#dropdowns -->
+              <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Go to Game <b class="caret"></b></a>
+                <ul class="dropdown-menu">
+                  <li><a href="./gameview.html">Live games</a></li>
+                  <li><a href="./gameview.html">Past games</a></li>
+                  <li><a href="#">Something else here</a></li>
+                  <li class="divider"></li>
+                  <li class="nav-header">Nav header</li>
+                  <li><a href="#">Separated link</a></li>
+                  <li><a href="#">One more separated link</a></li>
+                </ul>
+              </li>
+              
+              <li><a href="./signin.html">Login</a></li>
+              
+              <li class="dropdown"> 
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Settings<b class="caret"></b></a>
+                <ul class="dropdown-menu">
+                  <li><a href="#/users">Users</a></li>
+                  <li><a href="#/users/new">New User</a></li>
+                  <li><a href="#">Something else here</a></li>
+                  <li class="divider"></li>
+                  <li class="nav-header">Nav header</li>
+                  <li><a href="#">Separated link</a></li>
+                  <li><a href="#">One more separated link</a></li>
+                </ul>
+              </li>
+              
+              <li class="contact-menu" ><a href="#contact">Contact</a></li>
+              
+              <li class="about-menu" ><a href="#about">About</a></li>
+              
+            </ul>
+          </div><!--/.nav-collapse -->
+        </div><!-- /.navbar-inner -->
+      </div><!-- /.navbar -->
+
+    </div><!-- /.container -->
