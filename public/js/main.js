@@ -46,6 +46,7 @@ requirejs.config({
       deps: ['jquery'],
       exports: 'bootstrap'
     }
+    
   },
   /**
    * HACK:
@@ -64,7 +65,9 @@ requirejs.config({
     'Router'           : 'router',
     
     // <TODO - add other collections ,views, models
-    'AboutView'      : 'views/about',
+    'AboutView'        : 'views/about',
+    'SigninView'       : 'views/signin',
+    'ContactView'      : 'views/contact',
     
     
     'UserModel'      : 'models/user',

@@ -1,3 +1,19 @@
+/**
+ * app.js
+ * 
+ * @version 1.0
+ * 
+ * DESCRIPTION:
+ * App module for the CLIENT-side application of RugbyTrack.
+ * uses backbone.js MVC framework, which depends on the underscore.js utility library.
+ * 
+ * @throws none
+ * @see 
+ * 
+ * @author Bob Drummond
+ * (C) 2012 PINK PELICAN NZ LTD
+ */
+
 define('App', [
   'jquery',
   'underscore',
@@ -18,4 +34,4 @@ define('App', [
   return {
     initialize: initialize
   };
-});
+}); // define

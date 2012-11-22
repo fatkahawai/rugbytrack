@@ -25,6 +25,8 @@ define('HeaderView', [
   var HeaderView;
 
   HeaderView = Backbone.View.extend({
+    selectedItem : String,
+    
     initialize: function() {
       var ajaxLoader;
 
@@ -44,6 +46,10 @@ define('HeaderView', [
     select: function(item) {
       $('.nav li').removeClass('active');
       $('.' + item).addClass('active');
+      this.selectedItem = item;
+    },
+    currentActive: function() {  // bob: added to find out active menu item
+      return(this.selectedItem);
     }
   });
 

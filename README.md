@@ -1,6 +1,7 @@
 ## What's this?
 
 RugbyTrack is a single-page web application build with Backbone, RequireJS and Twitter Bootstrap on the frontend. 
+
 The backend part of the application uses Express.js and the MongoDB NoSQL database and Mongoose (amongst other libraries).
 
 its derived from the "ClientManager" project
@@ -20,15 +21,19 @@ client-side
 -----------
 * twitter-bootstrap - UI library
 * backbone.js - client-side MVC framework
+*  since Underscore.js is a hard dependency of Backbone.js, we decided to use Underscore's template() method as our client-side HTML partial rendering engine.
 * jQuery - util library
 * require.js
+* Backbone.BootstrapModal Takes care of instantiation and opening/closing modals, and Removes the element from the DOM when closed
+
 
 ## Quick start
 
 - Make sure Node.js and NPM should be installed (I prefer to do it using NVM). This project was developed on Node 0.6.x.
-- Install project dependencies with NPM by running the following command in the terminal (project root): 
+- Install project dependency modules on the server with NPM by running the following command in the terminal (project root):
 
-    npm install .
+    npm install xyz
+    e.g. npm install express
 
 - Configure the ports for the application (for multiple environments: dev, test, production) and also the settings for the MongoDB connection (you can either host MongoDB locally or try a free hosting provider such as MongoLab). The config data is in /config
 - Start the server:
@@ -37,10 +42,11 @@ client-side
 
     npm start 
 
-  b) Development (note that if you want to load all the files uncompressed you should visit http://&lt;server&gt;:&lt;port&gt;/dev.html):
+  b) Development (note that if you want to load all the files uncompressed you should visit http://<server>:<port>/dev.html)
 
     node app.js
-
+    
+    then open your browser and go to localhost:8080 which should display the rendered public website
 
 ## App structure
 

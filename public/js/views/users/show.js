@@ -1,3 +1,19 @@
+/**
+ * users/show.js
+ * 
+ * @version 1.0
+ * 
+ * DESCRIPTION:
+ * Backbone View module for the CLIENT-side application of RugbyTrack.
+ * renders the template for the users in templates/users/show.html
+ * 
+ * @throws none
+ * @see 
+ * 
+ * @author Bob Drummond
+ * (C) 2012 PINK PELICAN NZ LTD
+ */
+
 define('UserView', [
   'jquery',
   'underscore',

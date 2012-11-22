@@ -20,14 +20,20 @@ define('Router', [
   'backbone',
   'HomeView',
   'HeaderView',
-  // TODO: add other views 
+  // TODO: add class name of other views here
   'AboutView',
+  'SigninView',
+  'ContactView',
   
   'UserListView',
   'UserView',
   'UserEditView',
   'UserModel'
-], function($, _, Backbone, HomeView, HeaderView, AboutView, UserListView, UserView, UserEditView, User) {
+], function($, _, Backbone, 
+            HomeView, HeaderView, 
+            // TODO: add class name of any other views here
+            AboutView, SigninView, ContactView, 
+            UserListView, UserView, UserEditView, User) {
   var AppRouter, initialize;
 
   AppRouter = Backbone.Router.extend({
@@ -35,14 +41,15 @@ define('Router', [
       ''            : 'home',
       'home'        : 'home',
       
+      // <TODO - add routes for any other views here
+      'contact'   : 'showContact',
+      'about'     : 'showAbout',
+      'signin'    : 'showSignin',
+      
       'users'     : 'showUsers', // /#/users
       'users/new' : 'addUser',
       'users/:id' : 'showUser',
       'users/:id/edit' : 'editUser',
-      // <TODO - add any other views
-      'contact' : 'showContact',
-      'about' : 'showAbout',
-      
       // any other action defaults to the following handler
       '*actions'    : 'defaultAction'
     }, // routes
@@ -60,6 +67,8 @@ define('Router', [
     }, // initialize
     
     home: function() {
+      console.log("router.js: home");
+      
       this.headerView.select('home-menu');
 
       if (!this.homeView) {
@@ -164,28 +173,70 @@ define('Router', [
     }, // editUser
     
     showAbout: function() {
-      var that = this;
       console.log("router.js: showAbout");
       
-      this.headerView.select('about-menu'); // highlight the selected menu item 
-      that.elms['page-content'].html("<p>default</p>"); // remove the previous content section
+      var activeMenu = this.headerView.currentActive();
+      console.log("router.js: showAbout. activeMenu= "+activeMenu);
 
+//      this.headerView.select('about-menu'); // highlight the selected menu item 
+      
+      // open a modal dialog
       if (!this.aboutView) {
         this.aboutView = new AboutView();
       }
-      // this works
-      this.elms['page-content'].html(this.aboutView.render().el);
-/*    but this original code doesn't....
-        this.aboutView.render(function() {
-        that.elms['page-content'].html(that.aboutView.el);
-      });
-*/
+      this.aboutView.render();
+
+      this.headerView.select(activeMenu); // highlight the selected menu item 
+      Backbone.history.navigate("");
+
     }, // showAbout
     
 
+    showSignin: function() {
+      console.log("router.js: showSignin");
+      
+      var activeMenu = this.headerView.currentActive();
+      console.log("router.js: showSignin. activeMenu= "+activeMenu);
+      
+      // open a modal dialog
+      if (!this.signinView) {
+        this.signinView = new SigninView();
+      }
+      this.signinView.render();
+
+      this.headerView.select(activeMenu); // highlight the selected menu item 
+      Backbone.history.navigate("");
+
+    }, // showSignin
+    
+    showContact: function() {
+      var that = this;
+      console.log("router.js: showContact");
+      
+
+      this.headerView.select('contact-menu'); // highlight the selected menu item 
+      
+      // don't open a new page, just replace the content section on our page with the contact.html content       
+      // or  use backbone.bootstrap-model library to open a modal dialog
+
+//      that.elms['page-content'].html("<p>default</p>"); // remove the previous content section to be sure its gone?
+
+      if (!this.contactView) {
+        this.contactView = new ContactView();
+      }
+      // this works
+      this.elms['page-content'].html(this.contactView.render().el);
+/*    but this original code doesn't....
+        this.contactView.render(function() {
+        that.elms['page-content'].html(that.contactView.el);
+      });
+*/
+    }, // showContact
+    
     defaultAction: function(actions) {
       // No matching route, log the route?
       console.log("router.js: unmatched route. actions="+actions);
+      Backbone.history.navigate("");
     }
   }); // Backbone.Router.extend
 

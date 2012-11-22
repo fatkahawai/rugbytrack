@@ -4,7 +4,7 @@
  * @version 1.0
  * 
  * DESCRIPTION:
- * MVC model definition for the Users class.
+ * server-side MVC MODEL definition for the Users class.
  * This module defines the MongoDB schema for the User class, and some methods to search the collection
  * for a specific user or users.
  * 
@@ -18,7 +18,7 @@
  */
 
 module.exports = function(mongoose) {
-  var validator = require('../../lib/validator'),
+  var validator = require('../../lib/validator'),  // my validation methods 
       Schema    = mongoose.Schema,
       User;
 

@@ -4,10 +4,13 @@
  * @version 1.0
  * 
  * DESCRIPTION:
- * MVC Controller for the Users class
- * This module sets up the express "routes" for get/put/post/delete API requests related to users,
+ * server-side MVC Controller for the Users class
+ * This module handles the API requests from web clients related to users
+ * sets up the express Routes for the get/put/post/deletes for /users,
  * which is a request like "GET <url>/users?arg=something"
  * 
+ * it uses the methods of the User model to read and write users data
+ *  
  * This is server-side JavaScript, intended to be run with Express on NodeJS.
  * uses Mongoose library for MongoDB
  * 
@@ -18,7 +21,7 @@
  * (C) 2012 PINK PELICAN NZ LTD
  */
 
-var v1       = '/api/v1',
+var v1       = '/api/v1',                    // versioning for the APIs
     utils    = require('../../lib/utils'),
     _        = require('underscore'),
     NotFound = utils.NotFound,

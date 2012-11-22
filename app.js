@@ -4,7 +4,7 @@
  * @version 1.0
  * 
  * DESCRIPTION:
- * Core module for the server-side application .
+ * Core module for the server-side application of RugbyTrack.
  * 
  * This is server-side JavaScript, intended to be run with Express on NodeJS using MongoDB NoSQL Db for persistence.
  * 
@@ -23,7 +23,7 @@ var connect        = require('connect'),
     utils          = require('./lib/utils'),
     EventEmitter   = require('events').EventEmitter,
     AppEmitter     = new EventEmitter(),
-    app            = express();   // .createServer() has been deprecated the error msg says, 
+    app            = express.createServer(), // or has been deprecated the error msg says, 
     ENV            = process.env.NODE_ENV || 'development',
     log            = console.log,
     dbPath;
@@ -53,10 +53,10 @@ utils.loadConfig(__dirname + '/config', function(config) {
 
   // register models
   require('./app/models/user')(mongoose);
-// <TODO add models>
+// <TODO add all models>
 
   // register controllers
-  ['users','events','teams','errors'].forEach(function(controller) {
+  ['users','errors'].forEach(function(controller) {
 // <TODO add all controllers>
     require('./app/controllers/' + controller + '_controller')(app, mongoose, config);
   });
