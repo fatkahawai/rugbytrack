@@ -18,12 +18,20 @@ requirejs.config({
     'App'              : '../../js/app',
     'Router'           : '../../js/router',
 
+    // ============ Models and Collections follow ============
     'UserModel'      : '../../js/models/user',
     'UserCollection' : '../../js/collections/users',
-    // ============ Specs follow ============
+    'TeamModel'      : '../../js/models/team',
+    'TeamCollection' : '../../js/collections/teams',
+    'GameModel'      : '../../js/models/game',
+    'GameCollection' : '../../js/collections/games',
+    'EventModel'      : '../../js/models/event',
+    'EventCollection' : '../../js/collections/events',
+//    <TODO: add the other models >
+
+    // ============ Test Specs follow ============
     'UserModelSpec'  : 'js/spec/user.spec'
   }
-//    <TODO add the other tables>
 });
 
 require(['require', 'jquery', 'chai', 'mocha'], function(require, $, chai) {
@@ -39,8 +47,10 @@ require(['require', 'jquery', 'chai', 'mocha'], function(require, $, chai) {
    * Any global vars defined before mocha.run() are accepted
    */
   mocha.setup({ ui: 'bdd' });
-  require(['UserModelSpec'], function(App, User) {
-    <TODO add the other tables>
+  require(['UserModelSpec'], function(App, 
+    User, Team, Game, Event
+    ) {
+   /* TODO: add the other models */
     mocha.run();
   });
 });

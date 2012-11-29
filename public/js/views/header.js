@@ -16,11 +16,11 @@
  * (C) 2012 PINK PELICAN NZ LTD
  */
 
-define('HeaderView', [
-  'jquery',
-  'underscore',
-  'backbone',
-  'text!templates/header.html'
+define("HeaderView", [
+  "jquery",
+  "underscore",
+  "backbone",
+  "text!templates/header.html"
 ], function($, _, Backbone, tpl) {
   var HeaderView;
 
@@ -32,22 +32,25 @@ define('HeaderView', [
 
       this.template = _.template(tpl);
 
-      $('body').ajaxStart(function() {
-        ajaxLoader = ajaxLoader || $('.ajax-loader');
+      $("body").ajaxStart(function() {
+        ajaxLoader = ajaxLoader || $(".ajax-loader");
         ajaxLoader.show();
       }).ajaxStop(function() {
-        ajaxLoader.fadeOut('fast');
+        ajaxLoader.fadeOut("fast");
       });
     },
+    
     render: function() {
       $(this.el).html(this.template());
       return this;
     },
+    
     select: function(item) {
-      $('.nav li').removeClass('active');
-      $('.' + item).addClass('active');
+      $(".nav li").removeClass("active");
+      $("." + item).addClass("active");
       this.selectedItem = item;
     },
+    
     currentActive: function() {  // bob: added to find out active menu item
       return(this.selectedItem);
     }

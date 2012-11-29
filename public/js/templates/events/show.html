@@ -1,0 +1,94 @@
+<div class="row">
+  <div class="span6">
+
+    <div class="page-header">
+      <h1><%= event.eventID %></h1>
+    </div>
+
+    <p>
+      <table class="table table-striped">
+        <tbody>
+
+          <tr>
+            <td><h6>Eent ID:</h6></td>
+            <td>
+              <i class="icon-briefcase"></i>
+              <%= event.eventID %>
+            </td>
+          </tr>
+
+          <tr>
+            <td><h6>Event Type:</h6></td>
+            <td>
+              <%= event.eventType %>
+            </td>
+          </tr>
+
+          <tr>
+            <td><h6>Event parameter:</h6></td>
+            <td>
+              <%= event.eventParam %>
+            </td>
+          </tr>
+
+          <tr>
+            <td><h6>Game:</h6></td>
+            <td>
+              <a href="mailto:<%= event.game %>"><%= event.game %></a>
+            </td>
+          </tr>
+
+          <tr>
+            <td><h6>Elapsed Secs:</h6></td>
+            <td>
+              <i class="icon-time"></i>
+              <%= event.elapsedSeconds %>
+            </td>
+          </tr>
+
+          <tr>
+            <td><h6>Possession:</h6></td>
+            <td>
+              <%= event.possession %>
+            </td>
+          </tr>
+
+          <tr>
+            <td><h6>positionX:</h6></td>
+            <td>
+              <%= event.positionX %>
+            </td>
+          </tr>
+
+          <tr>
+            <td><h6>positionY:</h6></td>
+            <td>
+              <%= event.positionY %>
+            </td>
+          </tr>
+
+          <tr>
+            <td><h6>Player:</h6></td>
+            <td>
+              <%= event.player %>
+            </td>
+          </tr>
+
+          <tr>
+            <td><h6>Recording User:</h6></td>
+            <td>
+              <%= event.recordingUser %>
+            </td>
+          </tr>
+
+        </tbody>
+      </table>
+    </p>
+
+    <p>
+      <a href="#/events/<%= event._id %>/edit" class="btn edit-btn">Edit</a>
+      <button class="btn delete-btn">Delete</button>
+    </p>
+
+  </div>
+</div>

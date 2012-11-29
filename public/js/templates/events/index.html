@@ -1,0 +1,69 @@
+<div class="row">
+  <div class="span12">
+
+    <div class="page-header">
+      <h1>List of events</h1>
+    </div>
+
+    <p>
+      <table class="table">
+        <thead>
+          <tr>
+            <th><i class="icon-briefcase"></i>Event ID</th>
+            <th>Event Type</th>
+            <th>Event Param</th>
+            <th>Game</th>
+            <th>Possession</th>
+            <th><i class="icon-time"></i>Elapsed Seconds</th>
+            <th>Team in Possession</th>
+            <th>X Position</th>
+            <th>Y Position</th>
+            <th>Player</th>
+            <th>Recording user</th>
+          </tr>
+        </thead>
+        <tbody>
+        <% _.each(events, function(event) { %>
+          <tr>
+            <td>
+              <a href="#/events/<%- event._id %>"><%- event.eventID %></a>
+            </td>
+            <td>
+              <%- event.eventParam %>
+            </td>
+            <td>
+              <%- event.eventType %>
+            </td>
+            <td>
+              <%- event.eventParam %>
+            </td>
+            <td>
+              <%- event.game %>
+            </td>
+            <td>
+              <%- event.elapsedSeconds %>
+            </td>
+            <td>
+              <%- event.possession %>
+            </td>
+            <td>
+              <%- event.positionX %>
+            </td>
+            <td>
+              <%- event.positionY %>
+            </td>
+            <td>
+              <%- event.player %>
+            </td>
+            <td>
+              <%- event.recordingUser %>
+            </td>
+
+          </tr>
+        <% }); %>
+        </tbody>
+      </table>
+    </p>
+
+  </div>
+</div>

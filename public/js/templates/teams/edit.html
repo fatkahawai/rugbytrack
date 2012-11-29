@@ -1,0 +1,111 @@
+<div class="row">
+  <div class="span8">
+
+    <div class="page-header">
+      <h1>Edit team</h1>
+    </div>
+
+    <form class="form-horizontal">
+      <fieldset>
+
+        <div class="control-group">
+          <label for="teamname-input" class="control-label">Name</label>
+          <div class="controls">
+            <div class="input-prepend">
+              <span class="add-on">
+                <i class="icon-user"></i>
+              </span>
+              <input type="text" class="input-xlarge" id="teamname-input" value="<%= team.teamName %>" />
+              <p class="help-block">Enter team name above, has to be between 2 and 100 chars.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="control-group">
+          <label for="country-input" class="control-label">Jersey color</label>
+          <div class="controls">
+            <div class="input-prepend">
+              <span class="add-on">
+                <i class="icon-user"></i>
+              </span>
+              <input type="text" class="input-xlarge" id="country-input" value="<%= team.country %>" />
+              <p class="help-block">Enter a valid country above.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="control-group">
+          <label for="province-input" class="control-label">Jersey color</label>
+          <div class="controls">
+            <div class="input-prepend">
+              <span class="add-on">
+                <i class="icon-user"></i>
+              </span>
+              <input type="text" class="input-xlarge" id="province-input" value="<%= team.province %>" />
+              <p class="help-block">Enter a valid province above.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="control-group">
+          <label for="homevenue-input" class="control-label">Home stadium</label>
+          <div class="controls">
+            <div class="input-prepend">
+              <span class="add-on">
+                <i class="icon-user"></i>
+              </span>
+              <input type="text" class="input-xlarge" id="homevenue-input" value="<%= team.homeVenue %>" />
+              <p class="help-block">Enter a valid home venue name above.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="control-group">
+          <label for="homestrip-input" class="control-label">Jersey color</label>
+          <div class="controls">
+            <div class="input-prepend">
+              <span class="add-on">
+                <i class="icon-user"></i>
+              </span>
+              <input type="text" class="input-xlarge" id="homestrip-input" value="<%= team.homeStrip %>" />
+              <p class="help-block">Enter a valid color above.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="control-group">
+          <label for="homeurl-input" class="control-label">Home-page</label>
+          <div class="controls">
+            <div class="input-prepend">
+              <span class="add-on">
+                <i class="icon-envelope"></i>
+              </span>
+              <input type="text" class="input-xlarge" id="homeurl-input" value="<%= team.homeURL %>" />
+              <p class="help-block">Enter a valid URL above.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="control-group">
+          <label for="twitterhandle-input" class="control-label">Twitter handle</label>
+          <div class="controls">
+            <div class="input-prepend">
+              <span class="add-on">
+                <i class="icon-envelope"></i>
+              </span>
+              <input type="text" class="input-xlarge" id="twitterhandle-input" value="<%= team.twitterHandle %>" />
+              <p class="help-block">Enter a valid Twitter Handle above.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="form-actions">
+          <a class="btn save-btn">Save</a>
+          <a class="btn back-btn">Back</a>
+        </div>
+
+      </fieldset>
+    </form>
+
+  </div>
+</div>

@@ -15,7 +15,7 @@
  * will send of POST request to the server to the urlRoot.
  * 
  * If we instantiate a model with an id, Backbone.js will automatically perform a 
- * get request to the urlRoot + '/id' (conforming to RESTful conventions)
+ * get request to the urlRoot + "/id" (conforming to RESTful conventions)
  * 
  * we can perform an update using the save api call which is intelligent and will 
  * send a PUT request instead of a POST request if an id is present (conforming 
@@ -32,10 +32,10 @@
  * (C) 2012 PINK PELICAN NZ LTD
  */
 
-define('UserModel', [
-  'jquery',
-  'underscore',
-  'backbone'
+define("UserModel", [
+  "jquery",
+  "underscore",
+  "backbone"
 ], function($, _, Backbone) {
   var User;
 
@@ -47,10 +47,24 @@ define('UserModel', [
 
     // set defaults for checking existance in the template for the new model
     defaults: {
-      name    : '',
-      email   : '',
-      company : '',
-      born    : new Date()
+      userName        : "",
+      password        : "",
+      fullName        : "",
+      email           : "",
+      dateRegistered  : new Date(),
+      born            : new Date(),
+      country         : "",
+      city            : "",
+      timeZone        : "",
+      homeTeam        : "",
+      favSecondTeam   : "",
+      facebookID      : "",
+      facebookPwd     : "",
+      twitterID       : "",
+      twitterPwd      : "",
+      googleID        : "",
+      googlePwd       : ""
+
     },
     
     /* 
@@ -59,42 +73,49 @@ define('UserModel', [
      * here. and add a listner on any of the model attributes like this example
 
        this.on("change:name", function(model){
-                var name = model.get("name"); // 'Stewie Griffin'
+                var name = model.get("name"); // "Stewie Griffin"
                 alert("Changed my name to " + name );
             });
-     *  or simply 'this.on("change", function(model){});' to listen for changes to all attributes of the model.
+     *  or simply "this.on("change", function(model){});" to listen for changes to all attributes of the model.
      */
     validate: function(attrs) { // validate is called automatically by the backbone framework when saving etc
-      var fields, i, len, nameLen, compLen, errors = {};
+      var fields, i, len, nameLen, errors = {};
 
       /**
-       * HACK: don't validate when silent is passed as an attribute
+       * HACK: don"t validate when silent is passed as an attribute
        * Useful when fetching model from server only by id
        */
       if (!attrs._silent) {
         // check required fields
-        fields = ['name', 'email', 'TODO', 'born'];
+        fields = ["userName", "password", "fullName", "email" ];  // TODO: make sure this list is complete
         for (i = 0, len = fields.length; i < len; i++) {
           if (!attrs[fields[i]]) {
-            errors[fields[i]] = fields[i] + ' required';
+            errors[fields[i]] = fields[i] + " required";
           }
         }
 
-        // check valid name
-        nameLen = (attrs.name) ? attrs.name.length : null;
+        // TODO: complete these client-side validations of user inputs
+
+        // check valid userName
+        nameLen = (attrs.userName) ? attrs.userName.length : null;
         if (nameLen < 2 || nameLen > 100) {
-          errors.name = "invalid name";
+          errors.userName = "invalid username - must be between 5 and 32 alphanumeric characters only";
         }
 
-        // check valid TODO: add other fields 
-        compLen = (attrs.TODO) ? attrs.TODO.length : null;
-        if (!compLen || (compLen < 7 || compLen > 100)) { // do some relevant validation
-          errors.TODO = "invalid TODO";
+        // TODO: check valid password, fullName, birth date, country, city, homeTeam, favSecondTeam
+        if ( attrs.fullName ) 
+          if (!(/^[a-zA-Z0-9\-\ ]+$/.test(attrs.email))) {
+            errors.fullName = "invalid full Name";
         }
-
+        
         // check valid email
         if (!(/^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/.test(attrs.email))) {
-          errors.email = "invalid email";
+          errors.email = "invalid email address format";
+        }
+
+        // check valid twitterID
+        if (!(/^\@[a-zA-Z0-9._-]+$/.test(attrs.twitterID))) {
+          errors.twitterID = "invalid twitter ID format";
         }
 
         if (_.keys(errors).length) {
@@ -107,4 +128,4 @@ define('UserModel', [
   }); // Backbone.Model.extend
 
   return User;
-}); // define
+}); // define namespace

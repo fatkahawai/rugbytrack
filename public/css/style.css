@@ -1,23 +1,19 @@
-body {
-  padding-top: 20px;
-  padding-bottom: 20px;
-}
-footer {
-  display: none;
-}
-th i {
-  margin-right: 5px;
-}
-.ajax-loader {
-  display: none;
-}
-/* Twitter bootstrap bug..? */
-.input-prepend .add-on, .input-prepend .btn {
-    margin-right: -5px;
-}
+/* Assert styles for displaying test restuls
+ */
+        .pass:before {  
+            content: 'PASS: ';  
+            color:  blue;  
+            font-weight: bold;  
+        }  
+        .fail:before {  
+            content: 'FAIL: ';  
+            color: red;  
+            font-weight: bold;  
+        }  
 
 
-/* Signin Form styles */
+/* Signin Form styles 
+ */
       .form-signin {
         max-width: 300px;
         padding: 19px 29px 29px;
@@ -42,4 +38,3 @@ th i {
         margin-bottom: 15px;
         padding: 7px 9px;
       }
-    

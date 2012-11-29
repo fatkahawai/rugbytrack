@@ -14,12 +14,12 @@
  * (C) 2012 PINK PELICAN NZ LTD
  */
 
-define('App', [
-  'jquery',
-  'underscore',
-  'backbone',
-  'Router',
-  'bootstrap'
+define("App", [
+  "jquery",
+  "underscore",
+  "backbone",
+  "Router",
+  "bootstrap"
 ], function($, _, Backbone, Router) {
 
   function initialize() {

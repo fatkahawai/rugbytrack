@@ -1,0 +1,103 @@
+<div class="row">
+  <div class="span8">
+
+    <div class="page-header">
+      <h1>Edit game</h1>
+    </div>
+
+    <form class="form-horizontal">
+      <fieldset>
+
+        <div class="control-group">
+          <label for="gameid-input" class="control-label">Game</label>
+          <div class="controls">
+            <div class="input-prepend">
+              <span class="add-on">
+                <i class="icon-briefcase"></i>
+              </span>
+              <input type="text" class="input-xlarge" id="gameid-input" value="<%= game.gameID %>" />
+              <p class="help-block">Enter name of the game above, has to be between 2 and 100 chars.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="control-group">
+          <label for="hometeam-input" class="control-label">Home team</label>
+          <div class="controls">
+            <div class="input-prepend">
+              <span class="add-on">
+                <i class="icon-user"></i>
+              </span>
+              <input type="text" class="input-xlarge" id="hometeam-input" value="<%= game.homeTeam %>" />
+              <p class="help-block">Enter a valid team name above.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="control-group">
+          <label for="awayteam-input" class="control-label">Away team</label>
+          <div class="controls">
+            <div class="input-prepend">
+              <span class="add-on">
+                <i class="icon-user"></i>
+              </span>
+              <input type="text" class="input-xlarge" id="awayteam-input" value="<%= game.awayTeam> %>" />
+              <p class="help-block">Enter a valid team name above.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="control-group">
+          <label for="dateplayed-input" class="control-label">Played on</label>
+          <div class="controls">
+            <div class="input-prepend">
+              <span class="add-on">
+                <i class="icon-time"></i>
+              </span>
+              <input type="text" class="input-xlarge" id="dateplayed-input" value="<%= formattedDate %>" />
+              <p class="help-block">
+                Enter valid date above, using the format: MM/DD/YYYY.<br />
+                Example: 01/07/1978.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- no entry field for dateRecorded. the default of today will be used when saved -->
+        
+        <div class="control-group">
+          <label for="approved-input" class="control-label">Approved</label>
+          <div class="controls">
+            <div class="input-prepend">
+              <span class="add-on">
+                <i class="icon-briefcase"></i>
+              </span>
+              <input type="text" class="input-xlarge" id="approved-input" value="<%= game.approved> %>" />
+              <p class="help-block">Enter approval above.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="control-group">
+          <label for="twitterhashtag-input" class="control-label">Twitter Hashtag</label>
+          <div class="controls">
+            <div class="input-prepend">
+              <span class="add-on">
+                <i class="icon-envelope"></i>
+              </span>
+              <input type="text" class="input-xlarge" id="twitterhashtag-input" value="<%= game.twitterHashTag %>" />
+              <p class="help-block">Enter a valid twitter hashtag above.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="form-actions">
+          <a class="btn save-btn">Save</a>
+          <a class="btn back-btn">Back</a>
+        </div>
+
+      </fieldset>
+    </form>
+
+  </div>
+</div>

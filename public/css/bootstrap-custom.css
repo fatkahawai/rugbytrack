@@ -30,17 +30,19 @@
 
     /* Downsize the brand/project name a bit */
     .navbar .brand {
-      padding: 14px 20px 16px; /* Increase vertical padding to match navbar links */
-      font-size: 16px;
+      padding: 6px 20px 16px; /* Increase vertical padding to match navbar links */
+      font-size: 24px;
       font-weight: bold;
       text-shadow: 0 -1px 0 rgba(0,0,0,.5);
     }
 
-    /* Navbar links: increase padding for taller navbar */
+    /* bob: commented out becuase this makes an oversized black box when home is active
+     Navbar links: increase padding for taller navbar 
     .navbar .nav > li > a {
       padding: 15px 20px;
     }
-
+    */
+   
     /* Offset the responsive button for proper vertical alignment */
     .navbar .btn-navbar {
       margin-top: 10px;
@@ -48,7 +50,7 @@
 
 
 
-    /* CUSTOMIZE THE NAVBAR
+    /* CUSTOMIZE THE Carousel
     -------------------------------------------------- */
 
     /* Carousel base class */
@@ -228,3 +230,5 @@
       }
 
     }
+    
+    

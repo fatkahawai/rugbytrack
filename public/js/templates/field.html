@@ -1,0 +1,128 @@
+<!-- a template to be inserted into the section with "page-content" class. Rendered by the home view in views/field.js -->
+
+    <div id="myField" class="container">
+        
+      <div class="row">
+        <div class="span2">
+          <div class="well sidebar-nav">
+            <ul class="nav nav-list">
+
+              <li class="nav-header">Set Pieces</li>
+
+                <label class="checkbox">
+                  <input type="checkbox" id="scrum" value="">
+                  Scrums
+                </label>
+
+                <label class="checkbox">
+                  <input type="checkbox" id="lineout" value="" checked>
+                  Lineouts
+                </label>
+                <label class="checkbox">
+                  <input type="checkbox" id="kickoff" value="">
+                  Kick-offs
+                </label>
+                <label class="checkbox">
+                  <input type="checkbox"  id="22drop" value="">
+                  22m drop-outs
+                </label>
+
+                <label class="radio inline">
+                  <input type="radio" name="optionsRadios"  value="option1"> a
+                </label>
+                <label class="radio inline">
+                  <input type="radio" name="optionsRadios"  value="option2"> b
+                </label>
+                <label class="radio inline">
+                  <input type="radio" name="optionsRadios" value="option3"> c
+                </label>
+
+              <li class="nav-header">Sidebar</li>
+              <li class="active"><a href="#">Link</a></li>
+              <li><a href="#">Link</a></li>
+              <li><a href="#">Link</a></li>
+              <li><a href="#">Link</a></li>
+              <li><a href="#">Link</a></li>
+              <li><a href="#">Link</a></li>
+              <li><a href="#">Link</a></li>
+            </ul>
+          </div><!--/.well -->
+        </div><!--/span-->
+        <div class="span10">
+          <div class="hero-unit">
+
+        <!-- my additions -->
+        <!-- create a tabbed content panel using bootstrap tabs component -->
+            <ul class="nav nav-tabs" id="myTab">
+            <li class="active"><a href="#field" data-toggle="tab">Field</a></li>
+            <li><a href="#summary" data-toggle="tab">Summary</a></li>
+            <li><a href="#gain-line" data-toggle="tab">Gain line battle</a></li>
+            <li><a href="#possession" data-toggle="tab">Possession</a></li>
+            <li><a href="#territory" data-toggle="tab">Territory</a></li>
+            <li><a href="#settings" data-toggle="tab">Settings</a></li>
+          </ul>
+ 
+          <div class="tab-content">
+            <div class="tab-pane active" id="field">
+              <h1>The Field!</h1>
+              <div>
+                <img src="img/rugbyfield.jpg">
+              </div>
+              <p>This is a template for a the field view. It includes a large callout called the hero unit and three supporting pieces of content. Use it as a starting point to create something more unique.</p>
+              <p><a class="btn btn-primary btn-large">Learn more &raquo;</a></p>
+            </div>
+            <div class="tab-pane" id="summary">
+              <table class="table table-striped">
+                <thead>
+                  <tr>
+                    <th>#</th>
+                    <th>Stat</th>
+                    <th>Team A</th>
+                    <th>Team B</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr class="error"> 
+                    <td>1</td>
+                    <td>Rucks won</td>
+                    <td>2</td>
+                    <td>312</td>
+                  </tr>
+                  <tr>
+                    <td>1</td>
+                    <td>Kicks</td>
+                    <td>17</td>
+                    <td>12</td>
+                  </tr>                    
+                </tbody>
+              </table>
+            </div>
+            <div class="tab-pane" id="gain-line">.use a view to render some stats graph here..</div>
+            <div class="tab-pane" id="possession">.use a view to render some stats graph here..</div>
+            <div class="tab-pane" id="territory">.use a view to render some stats graph here..</div>
+            <div class="tab-pane" id="settings">
+                <label class="checkbox">
+                  <input type="checkbox" id="kicks" value="">
+                  Kicks
+                </label>
+                <label class="checkbox">
+                  <input type="checkbox" id="ball in play" value="" checked>
+                  Ball in play
+                </label>
+            </div>
+          </div>
+ 
+          <script>
+            $(function () {
+              $('#myTab a:last').tab('show');
+            })
+          </script>
+            <!-- End my additions -->
+              
+            
+          </div> <!-- /hero-unit -->
+        </div><!--/span-->
+      </div><!--/row-->
+
+    </div><!--/.container-->
+

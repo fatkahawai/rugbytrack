@@ -14,18 +14,18 @@
  * (C) 2012 PINK PELICAN NZ LTD
  */
 
-define('AboutView', [
-  'jquery',
-  'underscore',
-  'backbone',
-  'text!templates/about.html'
+define("AboutView", [
+  "jquery",
+  "underscore",
+  "backbone",
+  "text!templates/about.html"
 ], function($, _, Backbone, tpl) {
   var AboutView;
 
   AboutView = Backbone.View.extend({
 
     // the Element ID in index.html were we temporarily write the modal content from about.html into the DOM
-    el: $('#modal'),
+    el: $("#modal"),
     
     // the Element ID for the modal window defined in about.html
     aboutModalEl: $("#myAboutModal"),
@@ -41,7 +41,7 @@ define('AboutView', [
     onCloseClick: function() {
             console.log("about.js: onCloseClick");
             
-            $("#myAboutModal").modal('hide');  // close the window
+            $("#myAboutModal").modal("hide");  // close the window
             $(this.el).html(""); 
 //            this.el.remove();                 // remove the about html from the DOM ?
 //            this.undelegateEvents();

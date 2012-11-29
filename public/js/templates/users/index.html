@@ -9,23 +9,56 @@
       <table class="table">
         <thead>
           <tr>
-            <th><i class="icon-user"></i>Name</th>
+            <th><i class="icon-user"></i>User name</th>
+            <!-- don't display passwords in list index view, only in detail show view-->
+            <th><i class="icon-user"></i>Full name</th>
             <th><i class="icon-envelope"></i>Email</th>
-            <th><i class="icon-time"></i>Born</th>
+            <th><i class="icon-time"></i>Registered on</th>
+            <th><i class="icon-time"></i>Born on</th>
+            <th>Country</th>
+            <th>City</th>
+            <th>Timezone</th>
+            <th>Home team</th>
+            <th>2nd team</th>
+            <!-- TODO: facebook, twitter, google sIDs & Pwds -->
           </tr>
         </thead>
         <tbody>
         <% _.each(users, function(user) { %>
           <tr>
             <td>
-              <a href="#/users/<%- user._id %>"><%- user.name %></a>
+              <a href="#/users/<%- user._id %>"><%- user.userName %></a>
+            </td>
+            <td>
+              <%- user.fullName %>
             </td>
             <td>
               <a href="mailto:<%- user.email %>"><%- user.email %></a>
             </td>
             <td>
+              <%= moment(new Date(user.dateRegistered)).format("MMMM Do YYYY") %>
+            </td>
+            <td>
               <%= moment(new Date(user.born)).format("MMMM Do YYYY") %>
             </td>
+            <td>
+              <%- user.country %>
+            </td>
+            <td>
+              <%- user.city %>
+            </td>
+            <td>
+              <%- user.timezone %>
+            </td>
+            <td>
+              <%- user.homeTeam %>
+            </td>
+            <td>
+              <%- user.favSecondTeam %>
+            </td>
+            
+            <!-- TODO: facebook, twitter, google IDs & Pwds -->
+            
           </tr>
         <% }); %>
         </tbody>

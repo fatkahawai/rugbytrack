@@ -1,0 +1,127 @@
+<div class="row">
+  <div class="span8">
+
+    <div class="page-header">
+      <h1>Edit event</h1>
+    </div>
+
+    <form class="form-horizontal">
+      <fieldset>
+
+        <div class="control-group">
+          <label for="eventid-input" class="control-label">EventID</label>
+          <div class="controls">
+            <div class="input-prepend">
+              <span class="add-on">
+                <i class="icon-briefcase"></i>
+              </span>
+              <input type="text" class="input-xlarge" id="eventid-input" value="<%= event.eventID %>" />
+              <p class="help-block">Enter Event ID above, has to be one character.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="control-group">
+          <label for="eventtype-input" class="control-label">Event Type</label>
+          <div class="controls">
+            <div class="input-prepend">
+              <span class="add-on">
+                <i class="icon-briefcase"></i>
+              </span>
+              <input type="text" class="input-xlarge" id="eventtype-input" value="<%= event.eventType %>" />
+              <p class="help-block">Enter a event type above.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="control-group">
+          <label for="eventparam-input" class="control-label">EventParam</label>
+          <div class="controls">
+            <div class="input-prepend">
+              <span class="add-on">
+                <i class="icon-briefcase"></i>
+              </span>
+              <input type="text" class="input-xlarge" id="eventparam-input" value="<%= event.eventParam %>" />
+              <p class="help-block">Enter event parameter above.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="control-group">
+          <label for="game-input" class="control-label">game</label>
+          <div class="controls">
+            <div class="input-prepend">
+              <span class="add-on">
+                <i class="icon-envelope"></i>
+              </span>
+              <input type="text" class="input-xlarge" id="game-input" value="<%= event.game %>" />
+              <p class="help-block">Enter a valid game ID above.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="control-group">
+          <label for="elapsedseconds-input" class="control-label">elapsed Seconds</label>
+          <div class="controls">
+            <div class="input-prepend">
+              <span class="add-on">
+                <i class="icon-briefcase"></i>
+              </span>
+              <input type="text" class="input-xlarge" id="elapsedseconds-input" value="<%= event.elapsedSeconds %>" />
+              <p class="help-block">Enter elapsedSeconds above.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="control-group">
+          <label for="possession-input" class="control-label">team in possession</label>
+          <div class="controls">
+            <div class="input-prepend">
+              <span class="add-on">
+                <i class="icon-briefcase"></i>
+              </span>
+              <input type="text" class="input-xlarge" id="possession-input" value="<%= event.possession %>" />
+              <p class="help-block">Enter team in possession above.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="control-group">
+          <label for="positionx-input" class="control-label">positionX</label>
+          <div class="controls">
+            <div class="input-prepend">
+              <span class="add-on">
+                <i class="icon-briefcase"></i>
+              </span>
+              <input type="text" class="input-xlarge" id="positionx-input" value="<%= event.positionX %>" />
+              <p class="help-block">Enter a valid positionX above.</p>
+            </div>
+          </div>
+        </div>
+
+        
+        <div class="control-group">
+          <label for="positiony-input" class="control-label">positionY</label>
+          <div class="controls">
+            <div class="input-prepend">
+              <span class="add-on">
+                <i class="icon-briefcase"></i>
+              </span>
+              <input type="text" class="input-xlarge" id="positiony-input" value="<%= event.positionY %>" />
+              <p class="help-block">Enter a valid positionY above.</p>
+            </div>
+          </div>
+        </div>
+        
+        <!-- TODO: faceboo, twitter, goold IDs & Pwds -->
+
+        <div class="form-actions">
+          <a class="btn save-btn">Save</a>
+          <a class="btn back-btn">Back</a>
+        </div>
+
+      </fieldset>
+    </form>
+
+  </div>
+</div>

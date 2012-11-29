@@ -9,14 +9,40 @@
       <fieldset>
 
         <div class="control-group">
-          <label for="name-input" class="control-label">Name</label>
+          <label for="username-input" class="control-label">Name</label>
           <div class="controls">
             <div class="input-prepend">
               <span class="add-on">
                 <i class="icon-user"></i>
               </span>
-              <input type="text" class="input-xlarge" id="name-input" value="<%= user.name %>" />
-              <p class="help-block">Enter name above, has to be between 2 and 100 chars.</p>
+              <input type="text" class="input-xlarge" id="username-input" value="<%= user.userName %>" />
+              <p class="help-block">Enter a user name above, has to be between 2 and 100 chars.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="control-group">
+          <label for="password-input" class="control-label">Password</label>
+          <div class="controls">
+            <div class="input-prepend">
+              <span class="add-on">
+                <i class="icon-briefcase"></i>
+              </span>
+              <input type="text" class="input-xlarge" id="password-input" value="<%= user.password %>" />
+              <p class="help-block">Enter a password above.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="control-group">
+          <label for="fullname-input" class="control-label">full name</label>
+          <div class="controls">
+            <div class="input-prepend">
+              <span class="add-on">
+                <i class="icon-briefcase"></i>
+              </span>
+              <input type="text" class="input-xlarge" id="fullname-input" value="<%= user.fullName %>" />
+              <p class="help-block">Enter full name above.</p>
             </div>
           </div>
         </div>
@@ -35,33 +61,92 @@
         </div>
 
         <div class="control-group">
-          <label for="<TODO: implement other fields>-input" class="control-label">Company</label>
-          <div class="controls">
-            <div class="input-prepend">
-              <span class="add-on">
-                <i class="icon-briefcase"></i>
-              </span>
-              <input type="text" class="input-xlarge" id="<TODO: implement other fields>-input" value="<%= user.<TODO: implement other fields> %>" />
-              <p class="help-block">Enter <TODO: implement other fields> above, has to be between 7 and 100 chars.</p>
-            </div>
-          </div>
-        </div>
-
-        <div class="control-group">
-          <label for="born-input" class="control-label">Born</label>
+          <label for="dateregistered-input" class="control-label">Registered on</label>
           <div class="controls">
             <div class="input-prepend">
               <span class="add-on">
                 <i class="icon-time"></i>
               </span>
-              <input type="text" class="input-xlarge" id="born-input" value="<%= formattedDate %>" />
+              <input type="text" class="input-xlarge" id="dateregistered-input" value="<%= formattedRegisteredDate %>" />
               <p class="help-block">
-                Enter birth date above, using the following format: MM/DD/YYYY.<br />
-                Example: 01/07/1978. User has to be above 18 years old.
+                Enter birth date above, using the format: MM/DD/YYYY.<br />
+                Example: 01/07/1978.
               </p>
             </div>
           </div>
         </div>
+
+        <div class="control-group">
+          <label for="born-input" class="control-label">Born on</label>
+          <div class="controls">
+            <div class="input-prepend">
+              <span class="add-on">
+                <i class="icon-time"></i>
+              </span>
+              <input type="text" class="input-xlarge" id="born-input" value="<%= formattedBornDate %>" />
+              <p class="help-block">
+                Enter birth date above, using the format: MM/DD/YYYY.<br />
+                Example: 01/07/1978.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="control-group">
+          <label for="country-input" class="control-label">country</label>
+          <div class="controls">
+            <div class="input-prepend">
+              <span class="add-on">
+                <i class="icon-briefcase"></i>
+              </span>
+              <input type="text" class="input-xlarge" id="country-input" value="<%= user.country %>" />
+              <p class="help-block">Enter country above.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="control-group">
+          <label for="city-input" class="control-label">city</label>
+          <div class="controls">
+            <div class="input-prepend">
+              <span class="add-on">
+                <i class="icon-briefcase"></i>
+              </span>
+              <input type="text" class="input-xlarge" id="city-input" value="<%= user.city %>" />
+              <p class="help-block">Enter city above.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- no entry field for timezone. TODO - determine users' timezone and save automatcially -->
+        <div class="control-group">
+          <label for="hometeam-input" class="control-label">your home team</label>
+          <div class="controls">
+            <div class="input-prepend">
+              <span class="add-on">
+                <i class="icon-briefcase"></i>
+              </span>
+              <input type="text" class="input-xlarge" id="hometeam-input" value="<%= user.homeTeam %>" />
+              <p class="help-block">Enter a valid home team above.</p>
+            </div>
+          </div>
+        </div>
+
+        
+        <div class="control-group">
+          <label for="favsecondteam-input" class="control-label">your favourite second team</label>
+          <div class="controls">
+            <div class="input-prepend">
+              <span class="add-on">
+                <i class="icon-briefcase"></i>
+              </span>
+              <input type="text" class="input-xlarge" id="favsecondteam-input" value="<%= user.favSecondTeam %>" />
+              <p class="help-block">Enter a valid team name above.</p>
+            </div>
+          </div>
+        </div>
+        
+        <!-- TODO: faceboo, twitter, goold IDs & Pwds -->
 
         <div class="form-actions">
           <a class="btn save-btn">Save</a>

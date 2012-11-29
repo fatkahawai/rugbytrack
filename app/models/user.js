@@ -5,8 +5,9 @@
  * 
  * DESCRIPTION:
  * server-side MVC MODEL definition for the Users class.
- * This module defines the MongoDB schema for the User class, and some methods to search the collection
- * for a specific user or users.
+ * This module defines the MongoDB schema for the User class, validation of attributes, 
+ * and some methods to search the collection for a specific user or users.
+ * It is used by the users MVC Controller in controllers/users_controller.js 
  * 
  * This is server-side JavaScript, intended to be run with Express on NodeJS using MongoDB NoSQL Db for persistence.
  * 
@@ -18,21 +19,47 @@
  */
 
 module.exports = function(mongoose) {
-  var validator = require('../../lib/validator'),  // my validation methods 
+  var validator = require("../../lib/validator"),  // my validation methods 
       Schema    = mongoose.Schema,
       User;
 
   User = new Schema({
-    name  :  {
+    
+    userName  :  {
+      type     : String,
+      validate : [validator({
+        isUserName : true,
+        length: {
+          min : 2,
+          max : 32
+        }
+      }), "userName"],
+      required : true
+    },
+    
+    password  :  {
+      type     : String,
+      validate : [validator({
+        isPwd : true,
+        length: {
+          min : 5,
+          max : 16
+        }
+      }), "password"],
+      required : true
+    },
+    
+    fullName  :  {
       type     : String,
       validate : [validator({
         length: {
           min : 2,
           max : 100
         }
-      }), "name"],
-      required : true
+      }), "fullName"],
+      required : false
     },
+    
     email : {
       type     : String,
       validate : [validator({
@@ -45,59 +72,182 @@ module.exports = function(mongoose) {
       unique   : true,
       required : true
     },
+    
+    dateRegistered  :  {
+      type : Date,
+      validate : [validator({
+        minAge : 0  // check its not a future date
+      }), "dateRegistered"],
+      required : false
+    },
+    
     born  :  {
       type : Date,
       validate : [validator({
-        minAge : 18
+        minAge : 5
       }), "born"],
-      required : true
+      required : false
     },
+    
+    country : {
+      type     : String,
+      validate : [validator({
+        length: {
+          min : 3,
+          max : 32
+        }
+      }), "country"],
+      required : false
+    },
+
+    city : {
+      type     : String,
+      validate : [validator({
+        length: {
+          min : 3,
+          max : 32
+        }
+      }), "city"],
+      required : false
+    },
+
+    timezone : {       // e.g. "EST" or "GMT+12"
+      type     : String,
+      validate : [validator({
+        length: {
+          min : 3,
+          max : 6
+        }
+      }), "timezone"],
+      required : false
+    },
+
+    homeTeam : {
+      type     : String,
+      validate : [validator({
+        length: {
+          min : 3,
+          max : 32
+        }
+      }), "homeTeam"],
+      required : false
+    },
+
+    favSecondTeam : {
+      type     : String,
+      validate : [validator({
+        length: {
+          min : 3,
+          max : 32
+        }
+      }), "favSecondTeam"],
+      required : false
+    },
+
+    facebookID : {
+      type     : String,
+      validate : [validator({
+        length: {
+          min : 5,
+          max : 32
+        }
+      }), "facebookID"],
+      required : false
+    },
+    
+    facebookPwd  :  {
+      type     : String,
+      validate : [validator({
+        length: {
+          min : 5,
+          max : 16
+        }
+      }), "facebookPwd"],
+      required : false
+    },
+    
+    twitterID : {
+      type     : String,
+      validate : [validator({
+        length: {
+          min : 5,
+          max : 32
+        }
+      }), "twitterID"],
+      required : false
+    },
+    
+    twitterPwd  :  {
+      type     : String,
+      validate : [validator({
+        length: {
+          min : 5,
+          max : 16
+        }
+      }), "twitterPwd"],
+      required : false
+    },
+    
     googleID : {
       type     : String,
       validate : [validator({
         length: {
           min : 5,
-          max : 100
+          max : 32
         }
       }), "googleID"],
       required : false
-    }
+    },
+    
+    googlePwd  :  {
+      type     : String,
+      validate : [validator({
+        length: {
+          min : 5,
+          max : 16
+        }
+      }), "googlePwd"],
+      required : false
+    },
+    
+    
   });
 
 /*
- * like - similar to SQL's like
+ * like - similar to SQL"s like: case-insenstive search 
  */
 
   function like(query, field, val) {
-    return (field) ? query.regex(field, new RegExp(val, 'i')) : query;
+    return (field) ? query.regex(field, new RegExp(val, "i")) : query;
   }
 
 /*
- * User.statics.search
+ * User.search
  */
   User.statics.search = function search(params, callback) {
-    var Model = mongoose.model('User'),
+    var Model = mongoose.model("User"),
         query = Model.find();
 
-    like(query, 'name', params.name);
-    like(query, 'email', params.email);
+    like(query, "userName", params.userName);
+    like(query, "fullName", params.fullName);
+    like(query, "email", params.email);
 
     query.exec(callback);
   };
 
 /*
- * User.statics.findById
+ * User.findById
  */
   User.statics.findById = function findById(id, callback) {
-    var Model = mongoose.model('User'),
+    var Model = mongoose.model("User"),
         query = Model.find();
 
     if (id.length !== 24) {
       callback(null, null);
     } else {
-      Model.findOne().where('_id', id).exec(callback);
+      Model.findOne().where("_id", id).exec(callback);
     }
   };
 
-  return mongoose.model('User', User);
+  return mongoose.model("User", User);
 }

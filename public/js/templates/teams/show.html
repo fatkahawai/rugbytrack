@@ -1,0 +1,70 @@
+<div class="row">
+  <div class="span6">
+
+    <div class="page-header">
+      <h1><%= team.teamName %></h1>
+    </div>
+
+    <p>
+      <table class="table table-striped">
+        <tbody>
+          <tr>
+            <td><h6>Name:</h6></td>
+            <td>
+              <%= team.teamName %>
+            </td>
+          </tr>
+          <tr>
+            <td><h6>Country:</h6></td>
+            <td>
+              <i class="icon-briefcase"></i>
+              <%= team.country %>
+            </td>
+          </tr>
+          <tr>
+            <td><h6>Province:</h6></td>
+            <td>
+              <i class="icon-time"></i>
+              <%= team.province %>
+            </td>
+          </tr>
+          <tr>
+            <td><h6>Home Venue:</h6></td>
+            <td>
+              <i class="icon-time"></i>
+              <%= team.homeVenue %>
+            </td>
+          </tr>
+          <tr>
+            <td><h6>Home jersey color:</h6></td>
+            <td>
+              <i class="icon-time"></i>
+              <%= team.homeStrip %>
+            </td>
+          </tr>
+          <tr>
+            <td><h6>homeURL:</h6></td>
+            <td>
+              <i class="icon-envelope"></i>
+              <a href="http://<%= team.homeURL %>"><%= team.homeURL %></a>
+            </td>
+          </tr>
+          <tr>
+            <td><h6>Twitter Handle:</h6></td>
+            <td>
+              <i class="icon-envelope"></i>
+              <a href="http://www.twitter.com/<%= team.twitterHandle %>"><%= team.twitterHandle %></a>
+            </td>
+          </tr>
+
+        </tbody>
+      </table>
+    </p>
+
+    <p>
+      <a href="#/teams/<%= team._id %>/edit" class="btn edit-btn">Edit</a>
+      <button class="btn delete-btn">Delete</button>
+    </p>
+
+  </div>
+</div>

@@ -14,11 +14,11 @@
  * (C) 2012 PINK PELICAN NZ LTD
  */
 
-define('ContactView', [
-  'jquery',
-  'underscore',
-  'backbone',
-  'text!templates/contact.html'
+define("ContactView", [
+  "jquery",
+  "underscore",
+  "backbone",
+  "text!templates/contact.html"
 ], function($, _, Backbone, tpl) {
   var ContactView;
 
@@ -29,7 +29,7 @@ define('ContactView', [
       this.template = _.template(tpl);
     },
     
-    // The "render()" function will load our template into the view's "el" property using jQuery.
+    // The "render()" function will load our template into the view"s "el" property using jQuery.
     render: function() {
       $(this.el).html(this.template());
       return this;

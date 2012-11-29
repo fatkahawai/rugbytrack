@@ -14,18 +14,18 @@
  * (C) 2012 PINK PELICAN NZ LTD
  */
 
-define('SigninView', [
-  'jquery',
-  'underscore',
-  'backbone',
-  'text!templates/signin.html'
+define("SigninView", [
+  "jquery",
+  "underscore",
+  "backbone",
+  "text!templates/signin.html"
 ], function($, _, Backbone, tpl) {
   var SigninView;
 
   SigninView = Backbone.View.extend({
 
     // the Element ID in index.html were we temporarily write the modal content from signin.html into the DOM
-    el: $('#modal'),
+    el: $("#modal"),
     
     // the Element ID for the modal window defined in signin.html
     signinModalEl: $("#mySigninModal"),
@@ -41,7 +41,7 @@ define('SigninView', [
     onSubmitClick: function() {
             console.log("signin.js: onSubmitClick");
             
-            $("#mySigninModal").modal('hide');  // close the window
+            $("#mySigninModal").modal("hide");  // close the window
             $(this.el).html(""); 
 //            this.el.remove();                 // remove the signin html from the DOM ?
 //            this.undelegateEvents();

@@ -11,7 +11,7 @@ var async    = require('async'),
     utils    = require(root + 'lib/utils'),
     cleanDb  = utils.cleanDb,
     v1       = '/api/v1',
-    ENV, AppEmitter, Client, appUrl, clientsBulk, config, appServ;
+    ENV, AppEmitter, User, appUrl, usersBulk, config, appServ;
 
 ENV = process.env.NODE_ENV;
 AppEmitter = require(root + 'app');
@@ -55,14 +55,14 @@ describe('Controllers::Errors', function() {
   it("should return 404 for non-existing pages", function(done) {
     async.parallel([
       function get404(callback) {
-        request(appUrl + '/clients/kjsdflkjslkjdljsdlkjflskj', function(err, res, body) {
+        request(appUrl + '/users/kjsdflkjslkjdljsdlkjflskj', function(err, res, body) {
           callback(err, res.statusCode);
         });
       },
       function post404(callback) {
         request({
           method : "POST",
-          url    : appUrl + '/clients/kajshdkjhsdkjfhskjdhfkjhsdk',
+          url    : appUrl + '/users/kajshdkjhsdkjfhskjdhfkjhsdk',
           form   : {}
         }, function(err, res, body) {
           callback(err, res.statusCode);

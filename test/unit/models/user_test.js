@@ -41,19 +41,12 @@ describe('Models::User', function() {
       });
     });
 
-    it('should not have a photo by default', function() {
-      var newUser = new User();
-
-      newUser.photo.should.be.false;
-    });
-
-    it('should have the fields name, email, <TODO add other fields>, born required', function() {
+    it('should have the fields name, email, born required', function() {
       var newUser = new User();
 
       newUser.save(function(err) {
         err.errors.should.have.property('name');
         err.errors.should.have.property('email');
-        err.errors.should.have.property('TODO');
         err.errors.should.have.property('born');
       });
     });
@@ -69,7 +62,6 @@ describe('Models::User', function() {
 
       newUser.name    = "A";
       newUser.email   = "example@example.com";
-      newUser.TODO = "Peach Corp";
       newUser.born    = moment().year(1987).toDate();
 
       newUser.save(function(err) {
@@ -83,7 +75,6 @@ describe('Models::User', function() {
 
       anotherUser.name = temp;
       anotherUser.email   = "example2@example.com";
-      anotherUser.TODO = "Peach Corp2";
       anotherUser.born    = moment().year(1980).toDate();
 
       anotherUser.save(function(err) {
@@ -93,7 +84,6 @@ describe('Models::User', function() {
 
       lastUser.name    = "Andrew";
       lastUser.email   = "example3asdasd@example.com";
-      lastUser.TODO = "IT Corp";
       lastUser.born    = moment().year(1987).toDate();
 
       lastUser.save(function(err) {
@@ -110,7 +100,6 @@ describe('Models::User', function() {
 
       newUser.name    = "Andrew";
       newUser.email   = "examp$le@example.com";
-      newUser.TODO = "Peach Corp";
       newUser.born    = moment().year(1987).toDate();
 
       newUser.save(function(err) {
@@ -120,7 +109,6 @@ describe('Models::User', function() {
 
       anotherUser.name = "John";
       anotherUser.email   = "example2@example";
-      anotherUser.TODO = "Peach Corp2";
       anotherUser.born    = moment().year(1980).toDate();
 
       anotherUser.save(function(err) {
@@ -130,7 +118,6 @@ describe('Models::User', function() {
 
       lastUser.name    = "Andrew";
       lastUser.email   = "john.doe@yahoo.co.uk";
-      lastUser.TODO = "IT Corp";
       lastUser.born    = moment().year(1987).toDate();
 
       lastUser.save(function(err) {
@@ -147,7 +134,6 @@ describe('Models::User', function() {
 
       newUser.name    = "Andrew";
       newUser.email   = "andrew.doe@example.com";
-      newUser.TODO = "Peach Corp";
       newUser.born    = "abc";
 
       newUser.save(function(err) {
@@ -157,7 +143,6 @@ describe('Models::User', function() {
 
       anotherUser.name = "John";
       anotherUser.email   = "example@example.com";
-      anotherUser.TODO = "Peach Corp2";
       anotherUser.born    = moment().subtract('years', 17).toDate();
 
       anotherUser.save(function(err) {
@@ -167,7 +152,6 @@ describe('Models::User', function() {
 
       lastUser.name    = "Andrew";
       lastUser.email   = "john.doe@yahoo.co.uk";
-      lastUser.TODO = "IT Corp";
       lastUser.born    = moment().year(1987).toDate();
 
       lastUser.save(function(err) {
@@ -222,24 +206,6 @@ describe('Models::User', function() {
         docs = JSON.parse(JSON.stringify(docs));
         docs.length.should.equal(1);
         _.isEqual(docs[0], expectedUser).should.be.true;
-
-        done();
-      });
-    });
-
-    it('should search user by TODO', function(done) {
-      var searchTerm = 'Emmerich, Schuppe';
-
-      User.search({ TODO: searchTerm }, function(err, docs) {
-        var bulkLen = usersBulk.length, expectedUsers;
-
-        expectedUsers = _.filter(usersBulk, function(doc) {
-          return doc.TODO.indexOf(searchTerm) !== -1;
-        });
-
-        docs = JSON.parse(JSON.stringify(docs));
-        docs.length.should.equal(2);
-        _.isEqual(docs, expectedUsers).should.be.true;
 
         done();
       });

@@ -1,5 +1,5 @@
 /**
- * users/edit.js
+ * views/users/edit.js
  * 
  * @version 1.0
  * 
@@ -26,6 +26,8 @@ define('UserEditView', [
 
   UserEditView = Backbone.View.extend({
     initialize: function() {
+      console.log('view/users/edit.js: initialize()');
+      
       this.template = _.template(tpl);
 
       this.errTmpl  = '<div class="span4">';
@@ -38,37 +40,58 @@ define('UserEditView', [
     }, // initialize
     
     events: {
-      "focus .input-prepend input" : "removeErrMsg",
-      "click .save-btn"            : "saveUser",
-      "click .back-btn"            : "goBack"
+      'focus .input-prepend input' : 'removeErrMsg',
+      'click .save-btn'            : 'saveUser',
+      'click .back-btn'            : 'goBack'
     }, // events
     
     render: function() {
-      var tmpl, formattedDate = ' ', bornAttr;
+      var tmpl, formattedBornDate = ' ', bornAttr, formattedRegisteredDate = ' ', dateRegisteredAttr;
+      console.log('view/users/edit.js: render()');
 
       bornAttr = this.model.get('born');
-      formattedDate = moment(new Date(bornAttr)).format("MM/DD/YYYY");
+      formattedBornDate = moment(new Date(bornAttr)).format('MM/DD/YYYY');
 
-      tmpl = this.template({ user: this.model.toJSON(), formattedDate: formattedDate });
+      dateRegisteredAttr = this.model.get('dateRegistered');
+      formattedRegisteredDate = moment(new Date(dateRegisteredAttr)).format('MM/DD/YYYY');
+
+      tmpl = this.template({ user: this.model.toJSON(), formattedBornDate: formattedBornDate, formattedRegisteredDate: formattedRegisteredDate });
       $(this.el).html(tmpl);
 
       return this;
     }, // render
     
     goBack: function(e) {
+      console.log('view/users/edit.js: goBack()');
       e.preventDefault();
       this.trigger('back');
     }, // goBack
     
     saveUser: function(e) {
-      var name, born, email, that; // <TODO: add other fields>
+      console.log('view/users/edit.js: saveUser()');
+      // TODO: add other fields
+      var userName, password, fullName, dateRegistered, born, email, country, city, timezone, homeTeam, favSecondTeam, that; 
 
       e.preventDefault();
 
       that    = this;
-      name    = $.trim($('#name-input').val());
-      email   = $.trim($('#email-input').val());
-//      <TODO: - add other fields> = $.trim($('#<TODO: add other fields>-input').val());
+      
+      userName    = $.trim($('#username-input').val());
+      password    = $.trim($('#password-input').val());
+      fullName    = $.trim($('#fullname-input').val());
+      email       = $.trim($('#email-input').val());
+      
+//    TODO: - add any other fields
+
+      dateRegistered    = $.trim($('#dateregistered-input').val());
+
+      if (dateRegistered) {
+        dateRegistered = moment(dateRegistered, 'MM/DD/YYYY').valueOf();
+      } else {
+        dateRegistered = moment(); // today
+      }
+
+      
       born    = $.trim($('#born-input').val());
 
       if (born) {
@@ -77,11 +100,26 @@ define('UserEditView', [
         born = null;
       }
 
+      country         = $.trim($('#country-input').val());
+      city            = $.trim($('#city-input').val());
+      timezone        = $.trim($('#timezone-input').val());
+      homeTeam        = $.trim($('#hometeam-input').val());
+      favSecondTeam   = $.trim($('#favsecondteam-input').val());
+
       this.model.save({
-        name    : name,
-        email   : email,
+        userName      : userName,
+        password      : password,
+        fullName      : fullName,
+        
+        email         : email,
 //        <TODO - add other fields> : <TODO - add other fields>,
-        born    : born
+        dateRegistered: dateRegistered,
+        born          : born,
+        country       : country,
+        city          : city,
+        timezone      : timezone,
+        homeTeam      : homeTeam,
+        favSecondTeam : favSecondTeam
       }, {
         silent  : false,
         sync    : true,
@@ -97,9 +135,12 @@ define('UserEditView', [
             that.renderErrMsg(res.errors);
           } else if (res.status === 404) {
             // TODO: handle 404 Not Found
+            if(DEBUG) console.log("router.js: editUser: fetch failed - 404 not found");
           } else if (res.status === 500) {
             // TODO: handle 500 Internal Server Error
+            if(DEBUG) console.log("router.js: editUser: fetch failed - 500 internal server error");
           }
+
         }
       });
     }, // saveUser

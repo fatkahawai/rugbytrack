@@ -14,11 +14,11 @@
  * (C) 2012 PINK PELICAN NZ LTD
  */
 
-define('UserCollection', [
-  'jquery',
-  'underscore',
-  'backbone',
-  'UserModel'
+define("UserCollection", [
+  "jquery",
+  "underscore",
+  "backbone",
+  "UserModel"
 ], function($, _, Backbone, User) {
   var UserCollection;
 

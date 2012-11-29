@@ -1,3 +1,7 @@
+/*
+ * unit tests for the User object
+ * 
+ */
 define('UserModelSpec', ['UserModel'], function(User) {
 
   describe('User Model', function() {
@@ -5,36 +9,38 @@ define('UserModelSpec', ['UserModel'], function(User) {
 
     before(function() {
       fakeUser = {
-        name    : "Alex",
+        userName    : "Alex",
+        password: "fubar",
+        fullName: "Alex Leslie",
         email   : "example@example.com",
-        <TODO add other fields> : "foobar",
+        //  TODO:  add other fields> : "foobar", 
         born    : new Date()
       };
     });
 
     it("should check for required fields", function() {
-      var user = new User({ name: 'Alex' });
+      var user = new User({ userName: 'Alex' });
 
       user.isValid().should.be.false;
 
       user.set({
-        name    : 'Alex',
+        userName    : 'Alex',
         email   : fakeUser.email,
-        <TODO add other fields> : fakeUser.<TODO add other fields>,
+        //  TODO:  add other fields> : fakeUser.//  TODO:  add other fields>,
         born    : new Date()
       });
 
       user.isValid().should.be.true;
     });
 
-    // 2 <= name.length <= 100
-    it("should check for valid name", function() {
+    // 2 <= userName.length <= 100
+    it("should check for valid userName", function() {
       var user, badName, i;
 
       user = new User({
-        name    : 'A',
+        userName    : 'A',
         email   : fakeUser.email,
-        <TODO add other fields> : fakeUser.<TODO add other fields>,
+        //  TODO:  add other fields> : fakeUser.//  TODO:  add other fields>,
         born    : fakeUser.born,
       });
       user.isValid().should.be.false;
@@ -43,18 +49,18 @@ define('UserModelSpec', ['UserModel'], function(User) {
         badName += 'A';
       }
 
-      user.set('name', badName);
+      user.set('userName', badName);
       user.isValid().should.be.false;
 
-      user.set('name', fakeUser.name);
+      user.set('userName', fakeUser.userName);
       user.isValid().should.be.true;
 
     });
 
     it("should check for valid email", function() {
       var user = new User({
-        name    : fakeUser.name,
-        <TODO add other fields> : fakeUser.<TODO add other fields>,
+        userName    : fakeUser.userName,
+        //  TODO:  add other fields> : fakeUser.//  TODO:  add other fields>,
         born    : fakeUser.born,
         email   : "example@example"
       });
@@ -66,14 +72,14 @@ define('UserModelSpec', ['UserModel'], function(User) {
       user.isValid().should.be.true;
     });
 
-    // 7 <= <TODO add other fields>.length <= 100
-    it("should check for valid <TODO add other fields>", function() {
+    // 7 <= //  TODO:  add other fields>.length <= 100
+    it("should check for valid //  TODO:  add other fields>", function() {
       var user, badName, i;
 
       user = new User({
-        name    : fakeUser.name,
+        userName    : fakeUser.userName,
         email   : fakeUser.email,
-        <TODO add other fields> : "foobar",
+        //  TODO:  add other fields> : "foobar",
         born    : fakeUser.born,
       });
       user.isValid().should.be.false;
@@ -82,10 +88,10 @@ define('UserModelSpec', ['UserModel'], function(User) {
         badName += 'A';
       }
 
-      user.set('<TODO add other fields>', badName);
+      user.set('//  TODO:  add other fields>', badName);
       user.isValid().should.be.false;
 
-      user.set('<TODO add other fields>', fakeUser.<TODO add other fields>);
+      user.set('//  TODO:  add other fields>', fakeUser.//  TODO:  add other fields>);
       user.isValid().should.be.true;
 
     });

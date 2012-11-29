@@ -1,0 +1,77 @@
+<div class="row">
+  <div class="span6">
+
+    <div class="page-header">
+      <h1><%= game.gameID %></h1>
+    </div>
+
+    <p>
+      <table class="table table-striped">
+        <tbody>
+
+          <tr>
+            <td><h6>Game:</h6></td>
+            <td>
+              <i class="icon-briefcase"></i>
+              <%= game.gameID %>
+            </td>
+          </tr>
+
+          <tr>
+            <td><h6>Home team:</h6></td>
+            <td>
+              <i class="icon-user"></i>
+              <%= game.homeTeam %>
+            </td>
+          </tr>
+
+          <tr>
+            <td><h6>Away team:</h6></td>
+            <td>
+              <i class="icon-user"></i>
+              <%= game.awayTeam %>
+            </td>
+          </tr>
+
+          <tr>
+            <td><h6>Played on:</h6></td>
+            <td>
+              <i class="icon-time"></i>
+              <%= moment(new Date(game.datePlayed)).format("MMMM Do YYYY") %>
+            </td>
+          </tr>
+
+          <tr>
+            <td><h6>Recorded on:</h6></td>
+            <td>
+              <i class="icon-time"></i>
+              <%= moment(new Date(game.dateRecorded)).format("MMMM Do YYYY") %>
+            </td>
+          </tr>
+
+          <tr>
+            <td><h6>Approved:</h6></td>
+            <td>
+              <%= game.approved %>
+            </td>
+          </tr>
+
+          <tr>
+            <td><h6>Twitter Hashtag:</h6></td>
+            <td>
+              <i class="icon-envelope"></i>
+              <a href="http://www.twitter.com/<%= game.twitterHashTag %>"><%= game.twitterHashTag %></a>
+            </td>
+          </tr>
+
+        </tbody>
+      </table>
+    </p>
+
+    <p>
+      <a href="#/games/<%= game._id %>/edit" class="btn edit-btn">Edit</a>
+      <button class="btn delete-btn">Delete</button>
+    </p>
+
+  </div>
+</div>
