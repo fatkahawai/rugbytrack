@@ -46,7 +46,7 @@ module.exports = function(mongoose) {
           max : 16
         }
       }), "password"],
-      required : true
+      required : false
     },
     
     fullName  :  {
@@ -242,7 +242,7 @@ module.exports = function(mongoose) {
     var Model = mongoose.model("User"),
         query = Model.find();
 
-    if (id.length !== 24) {
+    if (id.length !== 24) {   // a Mongo ObjectID is a 12-byte BSON type
       callback(null, null);
     } else {
       Model.findOne().where("_id", id).exec(callback);

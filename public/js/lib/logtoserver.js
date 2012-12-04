@@ -45,9 +45,12 @@
 
   'use strict'; 
 
-  var appDomain = 'localhost';
-  var appAPI = '/api/v1';
-
+  var APPDOMAIN = 'localhost';
+  var APPAPI = '/api/v1';
+  
+  var logCount = 0;
+  var MAXLOGCOUNT = 100;
+  
   //  check for nodeJS
   var hasModule = (typeof module !== 'undefined');
 
@@ -63,13 +66,20 @@
  */
   logtoserver = function(
                    details) {
-    $.ajax({
-      type: 'POST',
-      url: 'http://'+appDomain+appAPI+'/errors',
-      data: JSON.stringify({context: navigator.userAgent, details: details}),
-      contentType: 'application/json; charset=utf-8'
-    }); 
-  };
+    // avoid overload
+    if  (++logCount > MAXLOGCOUNT ) {
+      console.log("logtoserver: max log count reached. logging to server terminated");
+    }
+    else{
+      console.log("logtoserver: "+details);
+      $.ajax({
+        type: 'POST',
+        url: 'http://'+APPDOMAIN+APPAPI+'/errors',
+        data: JSON.stringify({context: navigator.userAgent, details: details}),
+        contentType: 'application/json; charset=utf-8'
+      });
+    } // if
+  }; // logtoserver
   
   // **********************************************
   // Export logToServer interface = all public functions

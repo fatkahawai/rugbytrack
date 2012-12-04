@@ -1,63 +1,83 @@
 [
   {
-    "name"    : "Friedrich Jerde",
+    "userName"       : "Friedrich",
+    "password"       : "Friedrich",
+    "fullName"    : "Friedrich Jerde",
     "email"   : "Deon_Walter@janie.biz",
+    "dateRegistered" : "1984-06-09T11:41:20.096Z",
     "born"    : "1984-06-09T11:41:20.096Z",
-    "<TODO add other fields of user model>" : "Reinger-Kris",
-    "_id"     : "4fd331ec0f0d9ec903000001",
+    "_id"     : "4fd331ec0f0d9ec903000001"
   }, {
-    "name"    : "Rusty Turcotte",
+    "userName"       : "Rusty",
+    "password"       : "Rusty",
+    "fullName"    : "Rusty Turcotte",
     "email"   : "Dina.Lebsack@myron.ca",
+    "dateRegistered" : "1984-06-09T11:41:20.096Z",
     "born"    : "1986-05-09T11:22:20.990Z",
-    "<TODO add other fields of user model>" : "White and Daughters",
-    "_id"     : "4fd331ec0f0d9ec903000005",
+    "_id"     : "4fd331ec0f0d9ec903000005"
   }, {
-    "name"    : "Jammie Greenholt",
+    "userName"       : "Jammie",
+    "password"       : "Jammie",
+    "fullName"    : "Jammie Greenholt",
     "email"   : "Edwardo.Rice@kylie.info",
+    "dateRegistered" : "1984-06-09T11:41:20.096Z",
     "born"    : "1993-07-09T11:22:21.997Z",
-    "<TODO add other fields of user model>" : "Carter,Bechtelar and Wunsch",
-    "_id"     : "4fd331ed0f0d9ec90300000a",
+    "_id"     : "4fd331ed0f0d9ec90300000a"
   }, {
-    "name"    : "Marilyne Braun",
-    "email"   : "Elvie@fausto.name",
+    "userName"       : "Marilyne",
+    "password"       : "Marilyne",
+    "fullName"    : "Marilyne Braun",
+    "email"   : "Elvie@fausto.com",
+    "dateRegistered" : "1984-06-09T11:41:20.096Z",
     "born"    : "1985-06-09T11:31:20.386Z",
-    "<TODO add other fields of user model>" : "Yundt and Sons",
-    "_id"     : "4fd331ec0f0d9ec903000002",
+    "_id"     : "4fd331ec0f0d9ec903000002"
   }, {
-    "name"    : "Harvey Durgan",
+    "userName"       : "Harvey",
+    "password"       : "Harvey",
+    "fullName"    : "Harvey Durgan",
     "email"   : "Gino_Hessel@pierre.biz",
+    "dateRegistered" : "1984-06-09T11:41:20.096Z",
     "born"    : "1991-05-19T11:22:21.589Z",
-    "<TODO add other fields of user model>" : "Halvorson Inc",
-    "_id"     : "4fd331ed0f0d9ec903000008",
+    "_id"     : "4fd331ed0f0d9ec903000008"
   }, {
-    "name"    : "Cruz Hettinger",
+    "userName"       : "Cruz",
+    "password"       : "Cruzzer",
+    "fullName"    : "Cruz Hettinger",
     "email"   : "Lavon@earline.us",
+    "dateRegistered" : "1984-06-09T11:41:20.096Z",
     "born"    : "1989-03-09T12:22:20.791Z",
-    "<TODO add other fields of user model>" : "Sanford, Lubowitz and Zulauf",
-    "_id"     : "4fd331ec0f0d9ec903000004",
+    "_id"     : "4fd331ec0f0d9ec903000004"
   }, {
-    "name"    : "Keith Hintz",
+    "userName"       : "Keith",
+    "password"       : "Keith",
+    "fullName"    : "Keith Hintz",
     "email"   : "Omari_Kling@ally.us",
+    "dateRegistered" : "1984-06-09T11:41:20.096Z",
     "born"    : "1994-08-09T11:22:21.798Z",
-    "<TODO add other fields of user model>" : "Murazik, O'Connell and Leuschke",
-    "_id"     : "4fd331ed0f0d9ec903000009",
+    "_id"     : "4fd331ed0f0d9ec903000009"
   }, {
-    "name"    : "Grace Zieme",
+    "userName"       : "Grace",
+    "password"       : "Grace",
+    "fullName"    : "Grace Zieme",
     "email"   : "Sandrine@candice.us",
+    "dateRegistered" : "1984-06-09T11:41:20.096Z",
     "born"    : "1984-08-09T11:22:20.589Z",
-    "<TODO add other fields of user model>" : "Becker, Hayes and Weimann",
-    "_id"     : "4fd331ec0f0d9ec903000003",
+    "_id"     : "4fd331ec0f0d9ec903000003"
   }, {
-    "name"    : "Fiona Ondricka",
+    "userName"       : "Fiona",
+    "password"       : "Fiona",
+    "fullName"    : "Fiona Ondricka",
     "email"   : "Shania@hermann.biz",
+    "dateRegistered" : "1984-06-09T11:41:20.096Z",
     "born"    : "1988-03-09T12:22:21.190Z",
-    "<TODO add other fields of user model>" : "Emmerich, Schuppe and Skiles",
-    "_id"     : "4fd331ed0f0d9ec903000006",
+    "_id"     : "4fd331ed0f0d9ec903000006"
   }, {
-    "name"    : "Fiona Andrew",
+    "userName"       : "FionaA",
+    "password"       : "FionaPwd",
+    "fullName"    : "Fiona Andrew",
     "email"   : "fyy@hean.biz",
+    "dateRegistered" : "1984-06-09T11:41:20.096Z",
     "born"    : "1988-03-09T12:22:21.190Z",
-    "<TODO add other fields of user model>" : "Emmerich, Schuppe and Skiles",
-    "_id"     : "4fd331ed0f0d9ec903000007",
+    "_id"     : "4fd331ed0f0d9ec903000007"
   }
 ]

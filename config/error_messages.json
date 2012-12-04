@@ -1,5 +1,5 @@
 {
-  "NAME"      : "Name field is invalid, please enter a name with a length of 2-100 chars.",
+  "USERNAME"      : "Name field is invalid, please enter a name with a length of 2-100 chars.",
   "EMAIL"     : "Email address is invalid.",
   "BORN"      : "Birth date is invalid, please check the date format and make sure the age is above 18.",
   "DUPLICATE" : "Email address already exists, please choose a different one.",

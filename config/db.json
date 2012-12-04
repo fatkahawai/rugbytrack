@@ -5,7 +5,7 @@
       "PASS"     : "",
       "HOST"     : "localhost",
       "PORT"     : "27017",
-      "DATABASE" : "clients-test"
+      "DATABASE" : "rugbytrack-test"
     }
   },
   "development": {
@@ -14,7 +14,7 @@
       "PASS"     : "",
       "HOST"     : "localhost",
       "PORT"     : "27017",
-      "DATABASE" : "clients-dev"
+      "DATABASE" : "rugbytrack-dev"
     }
   },
   "production": {
@@ -23,7 +23,7 @@
       "PASS"     : "",
       "HOST"     : "localhost",
       "PORT"     : "27017",
-      "DATABASE" : "clients-main"
+      "DATABASE" : "rugbytrack-main"
     }
   }
 }
