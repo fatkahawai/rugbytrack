@@ -1,3 +1,8 @@
+/*
+ * main.js - client-side testbed using Mocha
+ * 
+ * (C) 2012 Pink Pelican NZ Ltd
+ */
 requirejs.config({
   shim: {
     'underscore': {
@@ -12,9 +17,9 @@ requirejs.config({
   paths: {
     'chai'             : '../../js/lib/chai',
     'mocha'            : '../../js/lib/mocha',
-    'jquery'           : '../../js/lib/jquery.min',
-    'underscore'       : '../../js/lib/underscore.min',
-    'backbone'         : '../../js/lib/backbone',
+    'jquery'           : '../../js/lib/jquery',
+    'underscore'       : '../../js/lib/underscore-amd',
+    'backbone'         : '../../js/lib/backbone-amd',
     'App'              : '../../js/app',
     'Router'           : '../../js/router',
 
@@ -46,11 +51,11 @@ require(['require', 'jquery', 'chai', 'mocha'], function(require, $, chai) {
    * in mocha.setup(opts);
    * Any global vars defined before mocha.run() are accepted
    */
-  mocha.setup({ ui: 'bdd' });
+  mocha.setup({ ui: 'bdd', globals: ['console'] });
   require(['UserModelSpec'], function(App, 
-    User, Team, Game, Event
+    User
+   /* TODO: add the other models Team, Game, Event*/
     ) {
-   /* TODO: add the other models */
     mocha.run();
   });
 });

@@ -19,11 +19,14 @@ define('UserEditView', [
   'underscore',
   'backbone',
   'moment',
+  "myassert",
+  "logToServer",
   'text!templates/users/edit.html',
   'UserModel'
-], function($, _, Backbone, moment, tpl, User) {
+], function($, _, Backbone, moment, myassert, logToServer, tpl, User) {
   var UserEditView;
-
+  // TODO: delete var twitterIDAttr ='';
+  
   UserEditView = Backbone.View.extend({
     initialize: function() {
       console.log('view/users/edit.js: initialize()');
@@ -49,6 +52,10 @@ define('UserEditView', [
       var tmpl, formattedBornDate = ' ', bornAttr, formattedRegisteredDate = ' ', dateRegisteredAttr;
       console.log('view/users/edit.js: render()');
 
+      // store value of non-editable fields for use by save function
+  // TODO: delete       twitterIDAttr = this.model.get('twitterID');
+  // TODO: delete       console.log('view/users/edit.js: existing twitterID= '+this.model.get('twitterID'));
+      
       bornAttr = this.model.get('born');
       formattedBornDate = moment(new Date(bornAttr)).format('MM/DD/YYYY');
 
@@ -70,26 +77,35 @@ define('UserEditView', [
     saveUser: function(e) {
       console.log('view/users/edit.js: saveUser()');
       // TODO: add other fields
-      var userName, password, fullName, dateRegistered, born, email, country, city, timezone, homeTeam, favSecondTeam, that; 
+      var userName, password, isAdmin, isRecorder, fullName, dateRegistered, born, email, country, city, timezone, homeTeam, favSecondTeam, that; 
 
       e.preventDefault();
 
       that    = this;
       
-      userName    = $.trim($('#username-input').val());
-      password    = $.trim($('#password-input').val());
-      fullName    = $.trim($('#fullname-input').val());
-      email       = $.trim($('#email-input').val());
+      userName     = $.trim($('#username-input').val());
+      console.log('view/users/edit.js: userName= '+userName);
+      password     = $.trim($('#password-input').val());
+      console.log('view/users/edit.js: password= '+password);
+      isAdmin      = $('#isadmin-input').val();
+      console.log('view/users/edit.js: isadmin= '+isAdmin);
+      isRecorder   = $('#isrecorder-input').val();
+      console.log('view/users/edit.js: isRecorder= '+isRecorder);
+      fullName     = $.trim($('#fullname-input').val());
+      console.log('view/users/edit.js: fullName= '+fullName);
+      email        = $.trim($('#email-input').val());
+      console.log('view/users/edit.js: email= '+email);
       
 //    TODO: - add any other fields
 
-      dateRegistered    = $.trim($('#dateregistered-input').val());
+      dateRegistered = $.trim($('#dateregistered-input').val());
 
       if (dateRegistered) {
         dateRegistered = moment(dateRegistered, 'MM/DD/YYYY').valueOf();
       } else {
         dateRegistered = moment(); // today
       }
+      console.log('view/users/edit.js: dateRegistered= '+dateRegistered);
 
       
       born    = $.trim($('#born-input').val());
@@ -99,20 +115,27 @@ define('UserEditView', [
       } else {
         born = null;
       }
+      console.log('view/users/edit.js: born= '+born);
 
       country         = $.trim($('#country-input').val());
+      console.log('view/users/edit.js: country= '+country);
       city            = $.trim($('#city-input').val());
+      console.log('view/users/edit.js: city= '+city);
       timezone        = $.trim($('#timezone-input').val());
+      console.log('view/users/edit.js: timezone= '+timezone);
       homeTeam        = $.trim($('#hometeam-input').val());
+      console.log('view/users/edit.js: homeTeam= '+homeTeam);
       favSecondTeam   = $.trim($('#favsecondteam-input').val());
+      console.log('view/users/edit.js: favSecondTeam= '+favSecondTeam);
 
       this.model.save({
         userName      : userName,
         password      : password,
+        isAdmin       : isAdmin, 
+        isRecorder    : isRecorder, 
         fullName      : fullName,
         
         email         : email,
-//        <TODO - add other fields> : <TODO - add other fields>,
         dateRegistered: dateRegistered,
         born          : born,
         country       : country,
@@ -120,25 +143,29 @@ define('UserEditView', [
         timezone      : timezone,
         homeTeam      : homeTeam,
         favSecondTeam : favSecondTeam
+        // any fields not changed/editable will not be altered by backbone
       }, {
         silent  : false,
         sync    : true,
         success : function(model, res) {
           if (res && res.errors) {
+            console.log('view/users/edit.js: success(but errors reported): save failed');
             that.renderErrMsg(res.errors);
           } else {
+            console.log('view/users/edit.js: triggering save-success');
             model.trigger('save-success', model.get('_id'));
           }
         },
         error: function(model, res) {
+          console.log('view/users/edit.js: error: save failed');
           if (res && res.errors) {
             that.renderErrMsg(res.errors);
           } else if (res.status === 404) {
             // TODO: handle 404 Not Found
-            if(DEBUG) console.log("router.js: editUser: fetch failed - 404 not found");
+            console.log("view/users/edit.js: editUser: save failed - 404 not found");
           } else if (res.status === 500) {
             // TODO: handle 500 Internal Server Error
-            if(DEBUG) console.log("router.js: editUser: fetch failed - 500 internal server error");
+            console.log("view/users/edit.js: editUser: save failed - 500 internal server error");
           }
 
         }

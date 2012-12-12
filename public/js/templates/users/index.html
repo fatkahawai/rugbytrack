@@ -11,6 +11,8 @@
           <tr>
             <th><i class="icon-user"></i>User name</th>
             <!-- don't display passwords in list index view, only in detail show view-->
+            <th></i>Admin</th>
+            <th></i>Recorder</th>
             <th><i class="icon-user"></i>Full name</th>
             <th><i class="icon-envelope"></i>Email</th>
             <th><i class="icon-time"></i>Registered on</th>
@@ -28,6 +30,12 @@
           <tr>
             <td>
               <a href="#/users/<%- user._id %>"><%- user.userName %></a>
+            </td>
+            <td>
+              <%- user.isAdmin %>
+            </td>
+            <td>
+              <%- user.isRecorder %>
             </td>
             <td>
               <%- user.fullName %>

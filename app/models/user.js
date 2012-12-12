@@ -19,7 +19,7 @@
  */
 
 module.exports = function(mongoose) {
-  var validator = require("../../lib/validator"),  // my validation methods 
+  var validator = require('../../lib/validator'),  // my validation methods 
       Schema    = mongoose.Schema,
       User;
 
@@ -31,9 +31,9 @@ module.exports = function(mongoose) {
         isUserName : true,
         length: {
           min : 2,
-          max : 32
+          max : 100
         }
-      }), "userName"],
+      }), 'userName'],
       required : true
     },
     
@@ -42,10 +42,23 @@ module.exports = function(mongoose) {
       validate : [validator({
         isPwd : true,
         length: {
-          min : 5,
-          max : 16
+          min : 0,
+          max : 100
         }
-      }), "password"],
+      }), 'password'],
+      default  : '',
+      required : false
+    },
+    
+    isAdmin  :  {
+      type     : Boolean,
+      default  : false,
+      required : false
+    },
+    
+    isRecorder :  {
+      type     : Boolean,
+      default  : false,
       required : false
     },
     
@@ -53,10 +66,11 @@ module.exports = function(mongoose) {
       type     : String,
       validate : [validator({
         length: {
-          min : 2,
+          min : 0,
           max : 100
         }
-      }), "fullName"],
+      }), 'fullName'],
+      default  : '',
       required : false
     },
     
@@ -65,10 +79,10 @@ module.exports = function(mongoose) {
       validate : [validator({
         isEmail : true,
         length  : {
-          min : 7,
+          min : 5,
           max : 100
         }
-      }), "email"],
+      }), 'email'],
       unique   : true,
       required : true
     },
@@ -77,15 +91,17 @@ module.exports = function(mongoose) {
       type : Date,
       validate : [validator({
         minAge : 0  // check its not a future date
-      }), "dateRegistered"],
+      }), 'dateRegistered'],
+      default  : new Date(),
       required : false
     },
     
     born  :  {
       type : Date,
       validate : [validator({
-        minAge : 5
-      }), "born"],
+        minAge : 0
+      }), 'born'],
+      default  : '',
       required : false
     },
     
@@ -93,10 +109,11 @@ module.exports = function(mongoose) {
       type     : String,
       validate : [validator({
         length: {
-          min : 3,
-          max : 32
+          min : 0,
+          max : 100
         }
-      }), "country"],
+      }), 'country'],
+      default  : '',
       required : false
     },
 
@@ -104,21 +121,23 @@ module.exports = function(mongoose) {
       type     : String,
       validate : [validator({
         length: {
-          min : 3,
-          max : 32
+          min : 0,
+          max : 100
         }
-      }), "city"],
+      }), 'city'],
+      default  : '',
       required : false
     },
 
-    timezone : {       // e.g. "EST" or "GMT+12"
+    timezone : {       // e.g. 'EST' or 'GMT+12'
       type     : String,
       validate : [validator({
         length: {
-          min : 3,
-          max : 6
+          min : 0,
+          max : 100
         }
-      }), "timezone"],
+      }), 'timezone'],
+      default  : '',
       required : false
     },
 
@@ -126,10 +145,11 @@ module.exports = function(mongoose) {
       type     : String,
       validate : [validator({
         length: {
-          min : 3,
-          max : 32
+          min : 0,
+          max : 100
         }
-      }), "homeTeam"],
+      }), 'homeTeam'],
+      default  : '',
       required : false
     },
 
@@ -137,10 +157,11 @@ module.exports = function(mongoose) {
       type     : String,
       validate : [validator({
         length: {
-          min : 3,
-          max : 32
+          min : 0,
+          max : 100
         }
-      }), "favSecondTeam"],
+      }), 'favSecondTeam'],
+      default  : '',
       required : false
     },
 
@@ -148,10 +169,11 @@ module.exports = function(mongoose) {
       type     : String,
       validate : [validator({
         length: {
-          min : 5,
-          max : 32
+          min : 0,
+          max : 100
         }
-      }), "facebookID"],
+      }), 'facebookID'],
+      default  : '',
       required : false
     },
     
@@ -159,10 +181,11 @@ module.exports = function(mongoose) {
       type     : String,
       validate : [validator({
         length: {
-          min : 5,
-          max : 16
+          min : 0,
+          max : 100
         }
-      }), "facebookPwd"],
+      }), 'facebookPwd'],
+      default  : '',
       required : false
     },
     
@@ -170,10 +193,11 @@ module.exports = function(mongoose) {
       type     : String,
       validate : [validator({
         length: {
-          min : 5,
-          max : 32
+          min : 0,
+          max : 100
         }
-      }), "twitterID"],
+      }), 'twitterID'],
+      default  : '',
       required : false
     },
     
@@ -181,10 +205,11 @@ module.exports = function(mongoose) {
       type     : String,
       validate : [validator({
         length: {
-          min : 5,
-          max : 16
+          min : 0,
+          max : 100
         }
-      }), "twitterPwd"],
+      }), 'twitterPwd'],
+      default  : '',
       required : false
     },
     
@@ -192,10 +217,11 @@ module.exports = function(mongoose) {
       type     : String,
       validate : [validator({
         length: {
-          min : 5,
-          max : 32
+          min : 0,
+          max : 100
         }
-      }), "googleID"],
+      }), 'googleID'],
+      default  : '',
       required : false
     },
     
@@ -203,10 +229,11 @@ module.exports = function(mongoose) {
       type     : String,
       validate : [validator({
         length: {
-          min : 5,
-          max : 16
+          min : 0,
+          max : 100
         }
-      }), "googlePwd"],
+      }), 'googlePwd'],
+      default  : '',
       required : false
     },
     
@@ -214,23 +241,23 @@ module.exports = function(mongoose) {
   });
 
 /*
- * like - similar to SQL"s like: case-insenstive search 
+ * like - similar to SQL's like: case-insenstive search 
  */
 
   function like(query, field, val) {
-    return (field) ? query.regex(field, new RegExp(val, "i")) : query;
+    return (field) ? query.regex(field, new RegExp(val, 'i')) : query;
   }
 
 /*
  * User.search
  */
   User.statics.search = function search(params, callback) {
-    var Model = mongoose.model("User"),
+    var Model = mongoose.model('User'),
         query = Model.find();
 
-    like(query, "userName", params.userName);
-    like(query, "fullName", params.fullName);
-    like(query, "email", params.email);
+    like(query, 'userName', params.userName);
+    like(query, 'fullName', params.fullName);
+    like(query, 'email', params.email);
 
     query.exec(callback);
   };
@@ -239,15 +266,15 @@ module.exports = function(mongoose) {
  * User.findById
  */
   User.statics.findById = function findById(id, callback) {
-    var Model = mongoose.model("User"),
+    var Model = mongoose.model('User'),
         query = Model.find();
 
     if (id.length !== 24) {   // a Mongo ObjectID is a 12-byte BSON type
       callback(null, null);
     } else {
-      Model.findOne().where("_id", id).exec(callback);
+      Model.findOne().where('_id', id).exec(callback);
     }
   };
 
-  return mongoose.model("User", User);
+  return mongoose.model('User', User);
 }

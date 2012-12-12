@@ -37,10 +37,12 @@ ErrorsController = function(app, mongoose) {
  * Express Route: app.all('*',
  */
   app.all('*', function(req, res, next) {
+    log.info('errors_controller.js: received an unknown request: '+JSON.stringify(req.body));
     throw new NotFound();
   });
 
   app.error(function(err, req, res, next) {
+    log.info('errors_controller.js: error route activated: '+err.msg);
     if (err instanceof NotFound) {
       if (err.msg && err.msg === 'json') {
         res.json(null, 404);

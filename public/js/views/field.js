@@ -31,6 +31,8 @@ define("FieldView", [
     
     // The "render()" function will load our template into the view"s "el" property using jQuery.
     render: function() {
+      if (DEBUG) console.log('field.js: render event. isLoggedIn= '+window.activeSession.isLoggedIn()+' isAdmin= '+window.activeSession.isAdmin());
+
       $(this.el).html(this.template());
       return this;
     }

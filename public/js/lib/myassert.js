@@ -20,7 +20,7 @@
 //
 (function (Boolean, String) {
 
-'use strict'; //can't use strict mode else accessing function name and args will throw exception
+'use strict'; 
 
 var isEnabled        = false;
 

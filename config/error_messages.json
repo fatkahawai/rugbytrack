@@ -1,7 +1,19 @@
 {
-  "USERNAME"      : "Name field is invalid, please enter a name with a length of 2-100 chars.",
-  "EMAIL"     : "Email address is invalid.",
-  "BORN"      : "Birth date is invalid, please check the date format and make sure the age is above 18.",
-  "DUPLICATE" : "Email address already exists, please choose a different one.",
-  "GOOGLEID"   : "Google ID field is invalid, please enter a valid Google ID." 
+  "USERNAME"      : "Mandatory Username field is invalid, please enter a name with a length of 2-100 chars.",
+  "PASSWORD"      : "Password field is invalid, please enter a name with a length of up to 100 chars.",
+  "FULLNAME"      : "Full name field is invalid, please enter a name with a length of up to 100 chars.",
+  "EMAIL"         : "Mandatory Email address is invalid. Must be in format xxx@yyy.zzz ",
+  "DATEREGISTERED": "Registration date is invalid, please check the date format, and that its today or earlier",
+  "BORN"          : "Birth date is invalid, please check the date format",
+  "COUNTRY"       : "Country name is invalid.",
+  "CITY"          : "Country name is invalid.",
+  "HOMETEAM"      : "Home team name is invalid.",
+  "FAVSECONDTEAM" : "Favourite second team name is invalid.",
+  "DUPLICATE"     : "Email address already exists, please choose a different one.",
+  "TWITTERID"     : "Twitter ID field is invalid, please enter a valid ID." ,
+  "TWITTERPWD"    : "Twitter password field is invalid, please enter a valid password." ,
+  "FACEBOOKID"    : "Facebook ID field is invalid, please enter a valid ID." ,
+  "FACEBOOKPWD"   : "Facebook password field is invalid, please enter a valid password." ,
+  "GOOGLEID"      : "Google ID field is invalid, please enter a valid ID." ,
+  "GOOGLEPWD"     : "Google password field is invalid, please enter a valid password." 
 }

@@ -57,7 +57,7 @@ UsersController = function(app, mongoose, config) {
  * GET (a user)
  */
   app.get(v1 + '/users/:id', function show(req, res, next) {
-    log.info('users_controller.js: GET a user');
+    log.info('users_controller.js: GET a user: '+req.params.id);
 
     User.findById(req.params.id, function(err, user) {
       checkErr(
@@ -80,12 +80,16 @@ UsersController = function(app, mongoose, config) {
     log.info('users_controller.js: POST to create a user');
 
     // disallow other fields besides those listed below
-    newUser = new User(_.pick(req.body, 'userName', 'email', 'born' /*TODO: add all fields */));
+    newUser = new User(_.pick(req.body, 'userName', 'password', 'isAdmin', 'isRecorder', 'fullName', 'email', 'dateRegistered', 'born', 
+                       'country', 'city', 'timezone', 'homeTeam','favSecondTeam', 
+                       'twitterID', 'twitterPwd','facebookID', 'facebookPwd','googleID', 'googlePwd'));
+    log.debug('users_controller.js: saving new user');
     newUser.save(function(err) {
       var errors, code = 200, loc;
 
       if (!err) {
         loc = config.site_url + v1 + '/users/' + newUser._id;
+        log.debug('users_controller.js: saved new user OK, sending response: '+loc);
         res.setHeader('Location', loc);
         res.json(newUser, 201);
       } else {
@@ -95,10 +99,41 @@ UsersController = function(app, mongoose, config) {
           delete errors.code;
           log.info(err);
         }
+        log.info('users_controller.js: couldnt save new user, sending response '+errors);
         res.json(errors, code);
       }
     });
   });
+
+/*
+ * POST - authenticate a user
+ * If valid, it fills out the user details on the session, sets a unique sessionID and removes the password 
+ * and then sends back the result.
+ */
+  app.post(v1 + '/user/signin', function create(req, res, next) {
+    log.debug('users_controller.js: POST to authenticate a user');
+
+    log.debug('users_controller.js: searching for user, using req.body.userName= '+req.body.userName);
+
+    User.search(req.body, function(err, users) {
+      log.debug('users_controller.js: loaded '+users.length+' users who match username '+req.body.userName);
+      if ( users.length == 1 ) {
+        if ( users[0].password == req.body.password ) {
+          // create a new sessionID to send back to the client
+          // HTTP 201 = The request has been fulfilled and resulted in a new resource being created
+          res.json(201, {userName: users[0].userName});  
+        }
+        else{
+          log.debug('users_controller.js: password not correct');
+          res.send(401);  // HTTP 401 = unauthorized 
+        }
+      }
+      else{
+        log.debug('users_controller.js: user not found');
+        res.send(401);  // HTTP 401 = unauthorized 
+      }
+    }); // User.search
+  }); // app.post
 
 /*
  * PUT - update a user data
@@ -114,7 +149,9 @@ UsersController = function(app, mongoose, config) {
           var newAttributes;
 
           // modify resource with allowed attributes
-          newAttributes = _.pick(req.body, 'userName', 'email', 'born'/*TODO: add all fields*/);
+          newAttributes = _.pick(req.body, 'userName', 'password', 'isAdmin', 'isRecorder', 'fullName', 'email', 'dateRegistered', 'born', 
+                       'country', 'city', 'timezone', 'homeTeam','favSecondTeam', 
+                       'twitterID', 'twitterPwd','facebookID', 'facebookPwd','googleID', 'googlePwd');
           user = _.extend(user, newAttributes);
 
           user.save(function(err) {
@@ -123,7 +160,7 @@ UsersController = function(app, mongoose, config) {
             if (!err) {
               // send 204 No Content
               log.debug('users_controller.js: #PUT: save was ok, sending 204 no content');
-              res.send();
+              res.send(204);
             } else {
               log.debug('users_controller.js: #PUT: save failed. parsing Db error err.name= '+err.name);
               errors = utils.parseDbErrors(err, config.error_messages);

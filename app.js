@@ -61,11 +61,12 @@ utils.loadConfig(__dirname + '/config', function(config) {
 
   // register models
   require('./app/models/user')(mongoose);
+  require('./app/models/session')(mongoose);
   // <TODO add all models>
   log.debug('app.js: registered all models');
 
   // register controllers
-  ['users','errors'].forEach(function(controller) {
+  ['users','logs','sessions','errors'].forEach(function(controller) {
   // <TODO add all controllers>
     require('./app/controllers/' + controller + '_controller')(app, mongoose, config);
     log.debug('app.js: registered controller '+controller);
@@ -91,7 +92,7 @@ utils.loadConfig(__dirname + '/config', function(config) {
       app.serverUp = true;
       log.info('app.js: server is running');
     });
-    log.info('-------\nExpress server listening on port '+config[ENV].PORT+', environment: '+ENV+'\n-------');
+    log.info('\n-------\nExpress server listening on port '+config[ENV].PORT+', environment: '+ENV+'\n-------');
   }
 
   AppEmitter.on('checkApp', function() {

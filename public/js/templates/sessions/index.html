@@ -1,0 +1,48 @@
+<div class="row">
+  <div class="span12">
+
+    <div class="page-header">
+      <h1>List of sessions</h1>
+    </div>
+
+    <p>
+      <table class="table">
+        <thead>
+          <tr>
+            <th><i class="icon-session"></i>Session ID</th>
+            <th></i>Username</th>
+            <th></i>Password</th>
+            <th></i>Admin</th>
+            <th></i>Recorder</th>
+            <th><i class="icon-time"></i>Session started</th>
+          </tr>
+        </thead>
+        <tbody>
+        <% _.each(sessions, function(session) { %>
+          <tr>
+            <td>
+              <%- session._id %>
+            </td>
+            <td>
+              <%- session.userName %>
+            </td>
+            <td>
+              <%- session.password %>
+            </td>
+            <td>
+              <%- session.isAdmin %>
+            </td>
+            <td>
+              <%- session.isRecorder %>
+            </td>
+            <td>
+              <%= moment(new Date(session.startDate)).format("MMM Do YYYY, HH:mm:ss.SSS") %>
+            </td>
+          </tr>
+        <% }); %>
+        </tbody>
+      </table>
+    </p>
+
+  </div>
+</div>

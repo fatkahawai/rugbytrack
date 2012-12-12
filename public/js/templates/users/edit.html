@@ -28,8 +28,28 @@
               <span class="add-on">
                 <i class="icon-briefcase"></i>
               </span>
-              <input type="text" class="input-xlarge" id="password-input" value="<%= user.password %>" />
+              <input type="password" class="input-xlarge" id="password-input" value="<%= user.password %>" />
               <p class="help-block">Enter a password above.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="control-group">
+          <label for="isadmin-input" class="control-label">Admin?</label>
+          <div class="controls">
+            <div class="input-prepend">
+              <input type="checkbox" id="isadmin-input" value="<%= user.isAdmin %>" />
+              <p class="help-block">true/false.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="control-group">
+          <label for="isrecorder-input" class="control-label">Recorder?</label>
+          <div class="controls">
+            <div class="input-prepend">
+              <input type="checkbox" id="isrecorder-input" value="<%= user.isRecorder %>" />
+              <p class="help-block">true/false.</p>
             </div>
           </div>
         </div>
@@ -118,7 +138,17 @@
           </div>
         </div>
 
-        <!-- no entry field for timezone. TODO - determine users' timezone and save automatcially -->
+        <!-- no entry field for timezone? TODO - determine users' timezone and save automatcially -->
+        <div class="control-group">
+          <label for="timezone-input" class="control-label">your timezone</label>
+          <div class="controls">
+            <div class="input-prepend">
+              <input type="text" class="input-xlarge" id="timezone-input" value="<%= user.timezone %>" />
+              <p class="help-block">Enter a valid timezone above.</p>
+            </div>
+          </div>
+        </div>
+
         <div class="control-group">
           <label for="hometeam-input" class="control-label">your home team</label>
           <div class="controls">

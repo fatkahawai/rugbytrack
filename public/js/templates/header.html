@@ -2,73 +2,74 @@
     <!-- NAVBAR
     ================================================== -->
     <!-- Wrap the .navbar in .container to center it on the page and provide easy way to target it with .navbar-wrapper. -->
-    <div class="container navbar-wrapper">
+    <div class='container navbar-wrapper'>
 
-      <div class="navbar navbar-inverse">
-        <div class="navbar-inner">
+      <div class='navbar navbar-inverse'>
+        <div class='navbar-inner'>
           <!-- Responsive Navbar Part 1: Button for triggering responsive navbar (not covered in tutorial). 
               Include responsive CSS to utilize. 
-          <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
+          <a class='btn btn-navbar' data-toggle='collapse' data-target='.nav-collapse'>
+            <span class='icon-bar'></span>
+            <span class='icon-bar'></span>
+            <span class='icon-bar'></span>
           </a>
           -->         
-          <a class="brand" href="#/home">RugbyTracker</a>
+          <a class='brand' href='#/home'>RugbyTracker</a>
 
      
           <!-- Responsive Navbar Part 2: Place all navbar contents you want collapsed withing .navbar-collapse.collapse.
-          <div class="nav-collapse collapse">
+          <div class='nav-collapse collapse'>
           -->
-            <ul class="nav">
+            <ul class='nav'>
                 
-              <li class="home-menu">
-                <a href="#/home">Home</a>
+              <li class='home-menu'>
+                <a href='#/home'>Home</a>
               </li>
               
               <!-- Read about Bootstrap dropdowns at http://twitter.github.com/bootstrap/javascript.html#dropdowns -->
-              <li class="game-menu dropdown">
-                <a href="#game" class="dropdown-toggle" data-toggle="dropdown">View<b class="caret"></b></a>
-                <ul class="dropdown-menu">
-                  <li><a href="#games/live">Watch live now</a></li> <!-- TODO: grey this item if no live match on -->
-                  <li class="divider"></li>
-                  <li class="nav-header">Archives</li>
-                  <li><a href="#games">Browse archives...</a></li> <!-- TODO: add to router and views and template -->
-                  <li><a href="#games/search">Search...</a></li>  <!-- TODO: add to router and views and template -->
+              <li class='game-menu dropdown'>
+                <a href='#game' class='dropdown-toggle' data-toggle='dropdown'>View<b class='caret'></b></a>
+                <ul class='dropdown-menu'>
+                  <li><a href='#games/live'>Watch live now</a></li> <!-- TODO: grey this item if no live match on -->
+                  <li class='divider'></li>
+                  <li class='nav-header'>Archives</li>
+                  <li><a href='#games'>Browse archives...</a></li> <!-- TODO: add to router and views and template -->
+                  <li><a href='#games/search'>Search...</a></li>  <!-- TODO: add to router and views and template -->
                 </ul>
               </li>
               
-              <li class="settings-menu dropdown"> 
-                <a href="#settings" class="dropdown-toggle" data-toggle="dropdown">Settings<b class="caret"></b></a>
-                <ul class="dropdown-menu">
-                  <li><a href="#/profile">My profile...</a></li>
-                  <li><a href="#/signout">Sign out</a></li>
+              <li class='settings-menu dropdown'> 
+                <a href='#settings' class='dropdown-toggle' data-toggle='dropdown'>Settings<b class='caret'></b></a>
+                <ul class='dropdown-menu'>
+                  <li><a href='#/profile'>My profile...</a></li>
+                  <li><a href='#/signout'>Sign out</a></li>
                 </ul>
               </li>
               
-              <li class="admin-menu dropdown"> <!-- TODO: hide this menu item until admin user signed in -->
-                <a href="#admin" class="dropdown-toggle" data-toggle="dropdown">Admin<b class="caret"></b></a>
-                <ul class="dropdown-menu">
-                  <li><a href="#/users">Users</a></li>
-                  <li><a href="#/users/new">New User...</a></li>
-                  <li class="divider"></li>
-                  <li><a href="#/games/new">Record a new game</a></li>
-                  <li class="divider"></li>
-                  <li><a href="#admin/teams">Teams...</a></li>
-                  <li><a href="#admin/venues">Match Venues...</a></li>
-                  <li><a href="#admin/commands">Keyboard commands...</a></li>
-                  <li><a href="#admin/options">Options...</a></li>  <!-- TODO: add to router and views and template -->
+              <li class='admin-menu dropdown'> <!-- TODO: hide this menu item until admin user signed in -->
+                <a href='#admin' class='dropdown-toggle' data-toggle='dropdown'>Admin<b class='caret'></b></a>
+                <ul class='dropdown-menu'>
+                  <li><a href='#/users'>Users</a></li>
+                  <li><a href='#/users/new'>New User</a></li>
+                  <li class='divider'></li>
+                  <li><a href='#/sessions'>Sessions history</a></li>
+                  <li class='divider'></li>
+                  <li><a href='#/games/new'>Record a new game</a></li>
+                  <li class='divider'></li>
+                  <li><a href='#admin/teams'>Teams...</a></li>
+                  <li><a href='#admin/venues'>Match Venues...</a></li>
+                  <li><a href='#admin/commands'>Keyboard commands...</a></li>
+                  <li><a href='#admin/options'>Options...</a></li>  <!-- TODO: add to router and views and template -->
                 </ul>
               </li>
               
-              <li class="signin-menu"> <!-- TODO: hide this menu item once user signed in -->
-                  <a href="#signin">Sign in</a>
+              <li class='signin-menu'> <!-- TODO: hide this menu item once user signed in -->
+                  <a href='#signin'>Sign in</a>
               </li>
               
-              <li class="about-menu" >
-                  <a href="#about">About</a>
+              <li class='about-menu' >
+                  <a href='#about'>About</a>
               </li>
-              
             </ul>
 <!--          </div><!--/.nav-collapse only required if using bootstrap responsive -->
         </div><!-- /.navbar-inner -->

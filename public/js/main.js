@@ -32,7 +32,14 @@
  * (C) 2012 PINK PELICAN NZ LTD
  */
 
+// ================
+// GLOBAL VARIABLES
+// ================
 var DEBUG = true;
+
+// ================
+// globals stored in the window object
+
 
 requirejs.config({
   shim: {
@@ -63,7 +70,7 @@ requirejs.config({
     'moment'           : 'lib/moment',
     'Mediator'         : 'lib/mediator',
     'myassert'         : 'lib/myassert',
-    'logtoserver'      : 'lib/logtoserver',
+    'logToServer'      : 'lib/logtoserver',
     'App'              : 'app',
     'Router'           : 'router',
     
@@ -97,13 +104,23 @@ requirejs.config({
     'EventCollection' : 'collections/events',
     'EventListView'   : 'views/events/index',
     'EventEditView'   : 'views/events/edit',
-    'EventView'       : 'views/events/show'
-
+    'EventView'       : 'views/events/show',
+    
+    'SessionModel'    : 'models/session',
+    'SessionListView' : 'views/sessions/index',
+    'SessionCollection': 'collections/sessions'
   }
 });
 
-require(['App','myassert','logtoserver'], function(App, User, Team, Game, Event) { // <TODO plus other collections
+require(['App','myassert','logToServer','SessionModel','UserModel'], function(App, User, Team, Game, Event, Session) { // <TODO plus other collections
   App.initialize();
+
+  // Initialize Globals at startup
+  window.appDomain = document.domain;
+  window.appPort   = document.location.port;   
+  window.appAPI    = '/api/v1';
+
+  if (DEBUG) console.log('main.js: using API url root '+'http://'+window.appDomain+':'+window.appPort+window.appAPI);
 
   if(DEBUG){
     myassert.setDisplayInWindow(true);    // log assertion failures and passes in the window footer 
@@ -116,11 +133,11 @@ require(['App','myassert','logtoserver'], function(App, User, Team, Game, Event)
   }
   // log client-side window DOM or jQuery errors to the server for stats
   window.onerror = function(message, file, line) {
-    logtoserver(file + ':' + line + ' #error #window_error ' + message); 
+    logToServer(file + ':' + line + ' #error #window_error ' + message); 
   };
   
    // log client-side ajax errors to the server for stats
    $(document).ajaxError(function(e, xhr, settings) {
-     logtoserver(settings.url + ':' + xhr.status + ' #error #ajax_error ' + xhr.responseText);
+     logToServer(settings.url + ':' + xhr.status + ' #error #ajax_error ' + xhr.responseText);
    });
 });
